@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* Breakpoints
+ *  es     sm     md     lg     xl     xxl
+ * 576px  576px  768px  992px  1200px 1400px
+ */
+
+
+
+/* --------------------------- COLOR THEME --------------------------- */
+$text-primary-light: #464A53;
+$text-primary-dark: #FFFFFF;
+$bg-primary-light: #EBECF2;
+$bg-primary-dark: #26282C;
+
+$text-primary: $text-primary-light;
+$bg-primary: $bg-primary-light;
+$bg-secondary: #D9D9D9;
+$gradient-primary-c1: hsla(185, 100%, 75%, 1);
+$gradient-primary-c2: hsla(225, 100%, 75%, 1);
+$gradient-primary-c3: hsla(265, 100%, 75%, 1);
+$gradient-primary: linear-gradient(60deg, $gradient-primary-c1 0%, $gradient-primary-c2 50%, $gradient-primary-c3 100%);
+
+$neu-fill-c1: #D4D4DA;
+$neu-fill-c2: #FBFDFF;
+$neu-shadow-c1: #FFFFFF;
+$neu-shadow-c2: #BCBDC2;
+
+
+
+/* --------------------------- BODY+NAVBAR --------------------------- */
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: grid;
+    // # Update: Sticky navbar, therefore adding an auto
+    grid-template-rows: auto 1fr auto;
+    overflow-x: hidden;
+    overflow-y: overlay;
+    scroll-behavior: smooth;
+
+    // ! Use Google font inside <head> instead of next/font/google (temp)
+    // font-family: var(--font-space-grotesk), var(--font-noto-sans-tc);
+    font-family: "Space Grotesk", "Noto Sans TC", sans-serif;
+	color: $text-primary;
+	background: $bg-primary;
+}
+
+.nav-link {
+    --spacing: 0.2em;
+    position: relative;
+    
+    letter-spacing: var(--spacing);
+    text-transform: uppercase;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: calc(100% - var(--spacing));
+    height: 0.1rem;
+    left: 0;
+    bottom: -0.15em;
+
+    background: $text-primary;
+    border-radius: 100vw;
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+}
+
+
+
+/* -------------------------- HOME PAGE -------------------------- */
+.banner {
+    height: 100lvh;
+}
+
+.banner-filter {
+    background: rgba($bg-primary, 0.4);
+    box-shadow: 0.5rem 0 1rem 0.1rem rgba($neu-shadow-c2, 0.5);
+}
+
+// ! TEMP
+main {
+    article {
+        section {
+            min-height: 100vh;
+            min-height: 100dvh;
+        }
+    }
+}
+header > h1 {
+    margin-left: 6rem;
+}
+
+
+/* ---------------------------- FOOTER --------------------------- */
+footer {
+    height: 6rem;
+    background: $text-primary;
+}
+
+
+
+/* ---------------------------- TEXTS ---------------------------- */
+h1, h2 {
+    max-width: fit-content;
+}
+
+h1 {
+    font-size: 4em;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    line-height: 1.5;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+p {
+    font-size: 1em;
+    line-height: 2;
+    text-align: justify;
+}
+
+.text-primary-gradient {
+    background: $gradient-primary;
+    background-clip: text;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.bracket {
+    $offset: -0.8ch;
+    position: relative;
+
+    &:before, &:after {
+        display: flex;
+        position: absolute;
+        align-items: center;
+        border-radius: 2rem;
+        top: 0;
+        bottom: 0;
+        font-size: 175%;
+        font-weight: normal;
+        transform: translateY(-0.1em);
+    }
+    &:before {
+        content: "[";
+        left: $offset;
+    }
+    &:after {
+        content: "]";
+        right: $offset;
+    }
+}
+
+.bracket.bracket-2 {
+    $offset: -0.7ch;
+    &:before, &:after {
+        font-size: 250%;
+        font-weight: 300;
+    }
+    &:before {
+        left: $offset;
+    }
+    &:after {
+        right: $offset;
+    }
+}
+
+
+
+/* ---------------------------- STYLE ---------------------------- */
+.frost-25 {
+    --base: 0.25rem;
+    backdrop-filter: blur(var(--base));
+    -ms-backdrop-filter: blur(var(--base));
+    -moz-backdrop-filter: blur(var(--base));
+    -webkit-backdrop-filter: blur(var(--base));
+}
+.frost-50 {
+    --base: 0.5rem;
+    backdrop-filter: blur(var(--base));
+    -ms-backdrop-filter: blur(var(--base));
+    -moz-backdrop-filter: blur(var(--base));
+    -webkit-backdrop-filter: blur(var(--base));
+}
+
+.nue-concave {
+    background: linear-gradient(135deg, rgba($neu-fill-c1, 0.85), rgba($neu-fill-c2, 0.85));
+    box-shadow: -12px -12px 24px $neu-shadow-c1,
+                12px 12px 24px $neu-shadow-c2;
+}
+.nue-pressed {
+    background: rgba($bg-primary, 0.85);
+    box-shadow: inset -12px -12px 24px $neu-shadow-c1,
+                inset 12px 12px 24px $neu-shadow-c2;
+    
+}
+
+.card {
+    border-radius: 4rem;
+    
+    div {
+        img {
+            aspect-ratio: 4 / 5;
+            border-radius: 2rem;
+            object-fit: cover;
+        }
+        span {
+            color: $gradient-primary-c2;
+        }
+    }
+}
+
+.pill {
+    border-radius: 100vw;
+}
+
+
+
+/* -------------------------- SELECTION -------------------------- */
+::selection, ::-webkit-selection {
+    color: $bg-primary;
+    text-fill-color: $bg-primary;
+    -moz-text-fill-color: $bg-primary;
+    -webkit-text-fill-color: $bg-primary;
+    background: $text-primary;
+}
+
+
+
+/* -------------------------- SCROLLBAR -------------------------- */
+$scrollbar-width: 24px;
+::-webkit-scrollbar {
+    width: calc(0.6 * $scrollbar-width);
+    background: transparent;
+    overflow-y: hidden;
+}
+::-webkit-scrollbar-thumb {
+    border: calc(0.2 * $scrollbar-width) solid transparent;
+    background: $text-primary;
+    border-radius: calc(0.6 * $scrollbar-width);
+    background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+    border: calc(0.2 * $scrollbar-width) solid transparent;
+    background: $gradient-primary;
+    border-radius: calc(0.6 * $scrollbar-width);
+    background-clip: content-box;
+}
+::-webkit-scrollbar-corner {
+    border-radius: calc(0.6 * $scrollbar-width);
+}
