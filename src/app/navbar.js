@@ -41,7 +41,7 @@ export default function Navbar() {
         ["首頁", "/"],
         ["同學", "/classmates"],
         ["文章", "/articles"],
-        ["照片", "/photos"],
+        ["照片", "/memories"],
     ];
 
     const toggleNav = () => {

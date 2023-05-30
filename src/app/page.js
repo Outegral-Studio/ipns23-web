@@ -1,27 +1,28 @@
 "use client";
 import Image from "next/image";
-// import MemorySec from "./components/memorySec";
-// import TeamSec from "./components/teamSec";
-// import QnaSec from "./components/qnaSec";
-import useScrollPos from "./components/useScrollPos";
+import { useRef, forwardRef, useImperativeHandle } from "react";
+import useElementPos from "./components/useElementsPos";
+import homepageImg from "../../public/img/HomepageImg.svg";
 
-export default function Home() {
-    const scrollPos = useScrollPos();
-    
+export default forwardRef(function Home(props, ref) {
+    const classmateRef = useRef(null);
+    const articleRef = useRef(null);
+    const memoryRef = useRef(null);
+    useImperativeHandle(ref, () => ({
+        classmateRef,
+        articleRef,
+        memoryRef,
+    }));
+
 	return (
         <div>
-            <header className="banner grid overflow-hidden">
-                <div className="grid max-w-min h-fit self-center justify-items-center gap-y-[1em] px-6
-                                justify-self-center md:justify-self-start
-                                -translate-y-12 sm:-translate-y-28
-                                md:ml-20 lg:ml-32 xl:ml-40">
-                    <h1 className="bracket bracket-2 w-max">
-                        梅竹黑客松<br />
-                        <span className="text-primary-gradient">十週年</span>紀念
+            <header className="banner grid overflow-hidden place-content-center">
+                <div className="grid max-w-min h-fit place-items-center gap-y-[1em] px-6">
+                    <h1 className="w-max">
+                        原科 23
                     </h1>
                     <p>
-                        {/* 我覺得 Subheading 不要太長比較好，一兩行剛剛好。怎麼感覺馬上刻網站的效果會比 Figma 好。ㄨㄚˊ 我現在覺得長一點好像也可以 QQ。本來是想要做 Neumorphism 的，但毛玻璃也不錯好猶豫啊啊啊 */}
-                        在梅竹黑客松邁向十週年之際，我們決定以一個嶄新的方式，紀念過去十年走過的足跡。透過存放往年的優秀作品，我們能夠回顧並學習，同時讓未來的參與者能夠在此找尋與迸發創意。
+                        哈哈是我啦
                     </p>
                 </div>
                 <div className="banner-filter frost-50 absolute w-screen h-full -top-1/3 md:top-0 md:-left-2/4
@@ -30,14 +31,71 @@ export default function Home() {
 
             <main>
                 <article>
-                    {/* <MemorySec ref={memoryRef} />
-                    <TeamSec ref={teamRef} />
-                    <QnaSec ref={qnaRef} /> */}
-                    {/* <MemorySec />
-                    <TeamSec />
-                    <QnaSec /> */}
+                    <ClassmateSec ref={classmateRef}/>
+                    <ArticleSec ref={articleRef} />
+                    <MemorySec ref={memoryRef} />
                 </article>
             </main>
+            <BannerImg classmateRef={classmateRef} articleRef={articleRef} memoryRef={memoryRef} />
         </div>
 	);
+})
+
+
+
+function BannerImg({ classmateRef, articleRef, memoryRef }) {
+    const classmateSecPos = useElementPos(classmateRef);
+    const articleSecPos = useElementPos(articleRef);
+    const memorySecPos = useElementPos(memoryRef);
+    let x = 0, y = 0;
+    if(memorySecPos <= 300) {
+        x = 70;
+        y = -10;
+    }
+    else if(articleSecPos <= 300) {
+        x = -60;
+        y = -60;
+    }
+    else if(classmateSecPos <= 300) {
+        x = 60;
+        y = 30;
+    }
+
+    return (
+        <div className="grid fixed inset-0 place-content-center -z-2 transition-all ease-out-quint duration-1000 motion-reduce:duration-300"
+             style={{transform: `translate(${x}%, ${y}%)`}}>
+            <Image
+                src={homepageImg}
+                alt="Concept art of this website"
+                className="max-w-none max-h-none scale-300"
+                priority
+            />
+        </div>
+    );
 }
+
+
+
+const ClassmateSec = forwardRef(function ClassmateSec(props, ref) {
+    return (
+        <section ref={ref}>
+            <h2>Classmate Section</h2>
+        </section>
+    );
+});
+
+const ArticleSec = forwardRef(function ArticleSec(props, ref) {
+    return (
+        <section ref={ref}>
+            <h2>Article Section</h2>
+        </section>
+    );
+});
+
+const MemorySec = forwardRef(function MemorySec(props, ref) {
+    return (
+        <section ref={ref}>
+            <h2>Memory Section</h2>
+        </section>
+    );
+});
