@@ -1,8 +1,9 @@
-export default function Classmate() {
+export default function Classmates() {
     return (
-        <div>
+        <div className="mx-20 lg:mx-32 2xl:mx-40
+                        my-20">
             <header>
-                <h1 className="bracket">Classmates</h1>
+                <h1>Classmates</h1>
             </header>
             <main>
             

@@ -1,8 +1,9 @@
-export default function Photo() {
+export default function Memories() {
     return (
-        <div>
+        <div className="mx-20 lg:mx-32 2xl:mx-40
+                        my-20">
             <header>
-                <h1 className="bracket">Photos</h1>
+                <h1>Photos</h1>
             </header>
             <main>
             

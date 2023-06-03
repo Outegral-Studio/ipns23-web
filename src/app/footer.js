@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <footer>
+        <footer className="bg-primary-invert h-24">
             
         </footer>
     );

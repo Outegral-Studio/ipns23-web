@@ -1,7 +1,7 @@
 "use client";
-import { useState, useLayoutEffect } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-// import ThemeSwitch from "./components/themeSwitch";
+import { useState, useLayoutEffect } from "react";
 import useScrollPos from "./components/useScrollPos";
 
 function useNavbarEffect() {
@@ -35,7 +35,7 @@ function useNavbarEffect() {
 }
 
 export default function Navbar() {
-    const active = (useScrollPos() >= 200);
+    const active = (useScrollPos() > 0);
     const {expanded, setExpanded} = useNavbarEffect();
     const links = [
         ["首頁", "/"],
@@ -56,41 +56,32 @@ export default function Navbar() {
                 <span className="sr-only">MENU</span>
             </button>
             <nav id="primary-navbar" data-visible={expanded}
-                 className={`${active ? "nue-concave frost-50 " : "bg-transparent"} ${(!expanded) ? "-translate-y-full" : ""} grid w-screen h-fit p-6 text-[0.875em] z-10 transition-colors
-                            sticky top-0 md:mt-[min(10vh,_6rem)]`}>
+                 className={`${active ? "bg-primary shadow-lg" : ""} ${(!expanded) ? "-translate-y-full" : ""}
+                            grid w-screen h-fit p-6 text-[0.875em] transition-colors z-10
+                            fixed md:sticky top-0`}>
                 
                 <ul className="navbar-nav flex flex-wrap p-2  gap-x-[4.5em] gap-y-[2.5em]
                                 flex-col justify-self-center
                                 md:flex-row md:justify-self-start
                                 md:ml-20 lg:ml-32 xl:ml-40"
                                 >
-                    <NavLinks links={links} handleEffect={useNavbarEffect} />
+                    <NavLinks links={links} />
                 </ul>
-                {/* <ThemeSwitch /> */}
             </nav>
         </>
     );
 }
 
-function NavLinks({links, handleEffect}) {
-    const router = useRouter();
-    const currentPath = router.asPath;
-    // const {expanded, setExpanded} = handleEffect();
-    const handleClick = (e, path) => {
-        e.preventDefault();
-        router.push(path);
-    }
-
+function NavLinks({links}) {
     return (
         <>
             {links.map((link, index) => (
                 <li key={index} className="text-center">
-                    <a
+                    <Link
                         href={link[1]}
-                        onClick={(e) => handleClick(e, link[1])}
                         className="nav-link max-w-fit hover:after:opacity-100">
                         {link[0]}
-                    </a>
+                    </Link>
                 </li>
             ))}
         </>

@@ -18,15 +18,13 @@ export default forwardRef(function Home(props, ref) {
         <div>
             <header className="banner grid overflow-hidden place-content-center">
                 <div className="grid max-w-min h-fit place-items-center gap-y-[1em] px-6">
-                    <h1 className="w-max">
-                        原科 23
+                    <h1 className="w-max text-right tracking-[0.4em]">
+                        多原<br />方程<br />式
                     </h1>
-                    <p>
-                        哈哈是我啦
-                    </p>
+                    <span>
+                        原科 23 畢業紀念
+                    </span>
                 </div>
-                <div className="banner-filter frost-50 absolute w-screen h-full -top-1/3 md:top-0 md:-left-2/4
-                                skew-x-0 -skew-y-30 md:-skew-x-30 md:skew-y-0 -z-1"></div>
             </header>
 
             <main>
@@ -47,7 +45,7 @@ function BannerImg({ classmateRef, articleRef, memoryRef }) {
     const classmateSecPos = useElementPos(classmateRef);
     const articleSecPos = useElementPos(articleRef);
     const memorySecPos = useElementPos(memoryRef);
-    let x = 0, y = 0;
+    let x = 17.5, y = 12.5;
     if(memorySecPos <= 300) {
         x = 70;
         y = -10;
