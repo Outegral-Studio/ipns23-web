@@ -1,14 +1,16 @@
 {
-    "title": "OUN 演講",
-    "subtitle": "OUN 演講測試",
-    "author": "里莫",
-    "description": "測試",
-    "tags": [
-        "測試"
-    ],
-    "contents": [
-        "#　Chat bubble test",
-        "ChatGPT 好用",
-        "ChatGPT ChatGPT ChatGPT ChatGPT ChatGPT ChatGPT ChatGPT ChatGPT ChatGPT ChatGPT"
-    ]
+	"title": "OUN 演講",
+	"subtitle": "OUN 演講測試",
+	"author": "里莫",
+	"description": "測試",
+	"tags": ["測試"],
+	"sections": {
+		"1": {
+			"contents": [
+				"#　Chat bubble test",
+				"ChatGPT 好用",
+				"ChatGPT ChatGPT ChatGPT ChatGPT ChatGPT ChatGPT ChatGPT ChatGPT ChatGPT ChatGPT"
+			]
+		}
+	}
 }

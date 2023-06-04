@@ -1,5 +1,6 @@
 "use client";
 import useSWR from "swr";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -28,9 +29,15 @@ export default function ArticlePage({ params }) {
 			</header>
 			<main>
                 <article>
-                    {Object.values(data.contents).map((content, index) => (
+                    {Object.values(data.sections).map((section, index) => (
                         <section key={index}>
-                            <p>{content}</p>
+                            {Object.values(Object.values(data.sections)[index].contents).map((content, index) => (
+                                <p key={index}>
+                                    <ReactMarkdown escapeHtml={false}>
+                                        {content}
+                                    </ReactMarkdown>
+                                </p>
+                            ))}
                         </section>
                     ))}
                 </article>

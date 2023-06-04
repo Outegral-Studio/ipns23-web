@@ -103,6 +103,7 @@ p {
     $gap: 1.5rem;
     display: grid;
     padding: $gap;
+    gap: 1rem;
     border: 2px $text-primary solid;
     border-radius: $radius;
     

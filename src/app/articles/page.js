@@ -24,8 +24,8 @@ export default function ArticleList() {
 						<li key={++index} className="">
 							<Link href={`/articles/${++index}`} className="card">
                                 <h2>{article[title]}</h2>
-                                <span>{article[subtitle]}</span><br />
-                                <span>{article[author]}</span><br />
+                                <span>{article[subtitle]}</span>
+                                <span>{article[author]}</span>
                                 <p>{article[desc]}</p>
                             </Link>
 						</li>
