@@ -2,18 +2,20 @@
 import "./globals.scss";
 import Navbar from "./navbar";
 import Footer from "./footer";
-import { Space_Grotesk, Noto_Sans_TC } from "next/font/google";
+import { Montserrat, Noto_Sans_TC } from "next/font/google";
 
-const spaceGrotesk = Space_Grotesk({
+const montserrat = Montserrat({
 	weight: ["300", "400", "500", "700"],
 	subsets: ["latin"],
+    style: ["normal", "italic"],
 	display: "swap",
-	variable: "--font-space-grotesk",
+	variable: "--font-montserrat",
 });
 
 const notoSansTC = Noto_Sans_TC({
 	weight: ["400", "500", "700"],
 	subsets: ["latin"],
+    style: "normal",
 	display: "swap",
 	variable: "--font-noto-sans-tc",
 });
@@ -30,8 +32,8 @@ export default function RootLayout({ children }) {
             <head>
                 <link rel="icon" href="/icon?<generated>" type="image/<generated>" sizes="<generated>" />
             </head>
-			<body className={`${spaceGrotesk.variable} ${notoSansTC.variable}
-                             grid grid-rows-[1fr_auto] md:grid-rows-[auto_1fr_auto]
+			<body className={`${montserrat.variable} ${notoSansTC.variable}
+                             grid grid-rows-[1fr_auto] md:grid-rows-[auto_1fr_auto] min-h-screen min-h-[100dvh] scroll-smooth
                              text-primary text-sm sm:text-base xl:text-lg bg-primary`}>
 				<Navbar />
                 {children}

@@ -35,7 +35,7 @@ function useNavbarEffect() {
 }
 
 export default function Navbar() {
-    const active = (useScrollPos() > 0);
+    const active = (useScrollPos() > 100);
     const {expanded, setExpanded} = useNavbarEffect();
     const links = [
         ["首頁", "/"],
@@ -53,14 +53,14 @@ export default function Navbar() {
             <button onClick={toggleNav} aria-controls="primary-navbar" aria-expanded={expanded}
                     className="fixed top-5 right-5 aspect-square w-6 bg-red-700 z-20
                                block md:hidden">
-                <span className="sr-only">MENU</span>
+                <span className="sr-only">Menu</span>
             </button>
             <nav id="primary-navbar" data-visible={expanded}
                  className={`${active ? "bg-primary shadow-lg" : ""} ${(!expanded) ? "-translate-y-full" : ""}
-                            grid w-screen h-fit p-6 text-[0.875em] transition-colors z-10
+                            grid w-screen h-fit text-[0.875em] z-10
                             fixed md:sticky top-0`}>
                 
-                <ul className="navbar-nav flex flex-wrap p-2  gap-x-[4.5em] gap-y-[2.5em]
+                <ul className="navbar-nav flex flex-wrap gap-x-[4.5em] gap-y-[2.5em]
                                 flex-col justify-self-center
                                 md:flex-row md:justify-self-start
                                 md:ml-20 lg:ml-32 xl:ml-40"

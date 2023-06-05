@@ -12,6 +12,9 @@
 
 
 /* --------------------------- COLOR THEME --------------------------- */
+$font-montserrat: var(--font-montserrat);
+$font-noto-sans-tc: var(--font-noto-sans-tc);
+
 $text-primary: #222222;
 $bg-primary: #EBECF2;
 $bg-secondary: #D9D9D9;
@@ -27,17 +30,24 @@ $neu-shadow-c2: #BCBDC2;
 
 
 
-/* --------------------------- BODY+NAVBAR --------------------------- */
+/* --------------------------- NAVBAR+BODY --------------------------- */
 body {
-    min-height: 100vh;
-    min-height: 100dvh;
     overflow-x: hidden;
     overflow-y: overlay;
-    scroll-behavior: smooth;
 
-    // ! Use Google font inside <head> instead of next/font/google (temp)
-    // font-family: var(--font-space-grotesk), var(--font-noto-sans-tc);
-    font-family: "Space Grotesk", "Noto Sans TC", sans-serif;
+    font-family: $font-montserrat, $font-noto-sans-tc, sans-serif;
+}
+
+$navbar-padding: 1.5rem;
+$navbar-nav-padding: 0.5rem;
+nav {
+    padding: $navbar-padding;
+    transition: background-color 0.15s,
+                box-shadow 0.15s;
+}
+
+.navbar-nav {
+    padding: $navbar-nav-padding;
 }
 
 .nav-link {
@@ -61,12 +71,10 @@ body {
     transition: opacity 0.15s ease-in-out;
 }
 
-
-
-/* -------------------------- HOME PAGE -------------------------- */
-.banner {
-    height: 100vh;
-    height: 100svh;
+@media screen and (min-width: 768px) {
+    .banner {
+        height: calc(100vh - 2 * ($navbar-padding + $navbar-nav-padding) - 0.875em - 10px);
+    }
 }
 
 
@@ -77,14 +85,14 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 4em;
+    font-size: 5em;
     font-weight: bold;
     letter-spacing: 0.05em;
-    line-height: 1.5;
+    line-height: 1.3;
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 2.5em;
     font-weight: bold;
     line-height: 1.2;
 }
