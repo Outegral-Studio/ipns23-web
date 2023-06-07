@@ -4,10 +4,6 @@ import { NextResponse } from "next/server";
 
 const filePath = path.join(process.cwd(), "src/app/json/classmates/classmates.json");
 
-function formatID(id) {
-    return id ? id.toString().padStart(3, "0") : "";
-}
-
 export function isValidID(id) {
     if(Number.isInteger(parseInt(id, 10))) {
         return true;
@@ -24,19 +20,18 @@ export async function fetchJSONData(id) {
     return JSON.parse(data)[id.toString()];
 }
 
-async function fetchArticleList() {
-    const articles = [];
+async function fetchClassmateList() {
+    const classmates = [];
     let counter = 1;
     
     while(true) {
         try {
-            const article = await fetchJSONData(counter);
-            const data = JSON.parse(article);
-            const arr = [data.title,
-                         data.subtitle,
-                         data.author,
-                         data.description];
-            articles.push(arr);
+            const classmate = await fetchJSONData(counter);
+            const arr = [classmate.Name,
+                         classmate.FirstExpertise,
+                         classmate.SecondExpertise,
+                         classmate.Quote];
+            classmates.push(arr);
             counter++;
         } catch(error) {
             console.error(error);
@@ -44,10 +39,10 @@ async function fetchArticleList() {
         }
     }
 
-    return JSON.stringify(articles);
+    return JSON.stringify(classmates);
 }
 
 export async function GET(request) {
-    const data = await fetchArticleList();
+    const data = await fetchClassmateList();
     return NextResponse.json(JSON.parse(data));
 }

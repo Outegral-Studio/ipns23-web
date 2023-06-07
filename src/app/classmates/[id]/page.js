@@ -2,8 +2,11 @@
 import useSWR from "swr";
 import path from "path";
 import Image from "next/image";
-import Twemoji from 'react-twemoji';
+import emoji from 'react-easy-emoji';
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebook, faInstagram, faTwitter, faLinkedin, faTiktok } from '@fortawesome/free-brands-svg-icons'
+
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -14,13 +17,27 @@ export default function ClassmatePage({ params }) {
 	if (error) return <div>Failed to load or classmate does not exist!</div>;
 	if (!data) return <div>Loading...</div>;
 
+    function fetchNameOfLink(link) {
+        const symbol = "/";
+        const lastIndex = link.lastIndexOf(symbol);
+
+        if(lastIndex !== -1) {
+            const substring = link.substring(lastIndex + 1);
+            if(substring.startsWith("profile")) {
+                return data.Name;
+            }
+            return substring;
+        }
+        return link;
+    }
+
 	return (
-		<div className="mx-20 lg:mx-32 2xl:mx-40
+		<div className="mx-10 md:mx-16 lg:mx-32 2xl:mx-48
                         my-20">
 			<header className="grid mb-10">
                 <div className="flex justify-between flex-col-reverse md:flex-row">
                     <div className="grid">
-                        <h1>{data.Name}</h1>
+                        <h1 className="tracking-[0.2em]">{data.Name}</h1>
                         <div className="school grid gap-y-2">
                             <span className="grad-school">{data.GradSchool}</span>
                             <span className="expertise">{data.FirstExpertise} / {data.SecondExpertise}</span>
@@ -29,29 +46,91 @@ export default function ClassmatePage({ params }) {
                     </div>
                     <Image
                         src={imagePath}
-                        alt={`Photo of ${data.name}`}
+                        alt={`Photo of ${data.Name}`}
                         width={300} height={400}
-                        className="object-cover aspect-[5/4] rounded-[3em]"
+                        className="object-cover rounded-[3em] aspect-[5/4] lg:aspect-video"
                         priority
                     />
                 </div>
-				
-				{/* <span>{data.Hometown}</span><br /> */}
 				<blockquote className="blockquote mt-40">
-                    <Twemoji options={{ className: 'twemoji' }}>
-                        <span>💡</span>
-                    </Twemoji>
+                    {emoji("💡")}
                     {data.Quote}
-                </blockquote><br />
+                </blockquote>
 			</header>
 			<main>
                 <article>
-                    <section>
-                        <p>{data.SelfIntro}</p>
+                    <section className="grid">
+                        <p className="blockquote">
+                            {emoji("🙋")}
+                            {data.SelfIntro}
+                        </p>
+                        <ul className="social-media grid">
+                            {data.SocialMedia.Facebook && (
+                                <li>
+                                    <a href={data.SocialMedia.Facebook}>
+                                        <FontAwesomeIcon icon={faFacebook} className="me-1" />
+                                        {fetchNameOfLink(data.SocialMedia.Facebook)}
+                                    </a>
+                                </li>
+                            )}
+                            {data.SocialMedia.Instagram && (
+                                <li>
+                                    <a href={data.SocialMedia.Instagram}>
+                                        <FontAwesomeIcon icon={faInstagram} className="me-1" />
+                                        {fetchNameOfLink(data.SocialMedia.Instagram)}
+                                    </a>
+                                </li>
+                            )}
+                            {data.SocialMedia.Twitter && (
+                                <li>
+                                <a href={data.SocialMedia.Twitter}>
+                                    <FontAwesomeIcon icon={faTwitter} className="me-1" />
+                                    {fetchNameOfLink(data.SocialMedia.Twitter)}
+                                </a>
+                            </li>
+                            )}
+                            {data.SocialMedia.LinkedIn && (
+                                <li>
+                                <a href={data.SocialMedia.LinkedIn}>
+                                    <FontAwesomeIcon icon={faLinkedin} className="me-1" />
+                                    {fetchNameOfLink(data.SocialMedia.LinkedIn)}
+                                </a>
+                            </li>
+                            )}
+                            {data.SocialMedia.TikTok && (
+                                <li>
+                                <a href={data.SocialMedia.TikTok}>
+                                    <FontAwesomeIcon icon={faTiktok} className="me-1" />
+                                    {fetchNameOfLink(data.SocialMedia.TikTok)}
+                                </a>
+                            </li>
+                            )}
+                        </ul>
+                        <span className="blockquote">
+                            {emoji("⛳")}
+                            {data.Clubs}
+                        </span>
+                        <span className="blockquote">
+                            {emoji("❤️")}
+                            {data.Hobbies}
+                        </span>
                     </section>
-                    <section>
-                        <p>{data.Social}</p>
-                    </section>
+                    {(data.Experience !== "") && (data.Portfolio !== "") && (
+                        <section>
+                            {data.Experience !== "" && (
+                                <p className="blockquote">
+                                    {emoji("💥")}
+                                    {data.Experience}
+                                </p>
+                            )}
+                            {data.Portfolio !== "" && (
+                                <p className="blockquote">
+                                    {emoji("💡")}
+                                    {data.Portfolio}
+                                </p>
+                            )}
+                        </section>
+                    )}
                 </article>
             </main>
 		</div>

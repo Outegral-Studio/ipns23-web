@@ -35,7 +35,7 @@ export default function Menu({ items }) {
 
 	return (
 		<div onWheel={handleScroll} className="menu grid place-content-center overflow-hidden p-16
-                                               text-[3.5em] md:text-[5em] font-bold tracking-widest leading-tight">
+                                               text-[3.5em] md:text-[5em] tracking-widest leading-tight">
 			{orderedItems.map((item, index) => (
 				<div key={item} className={`${getMenuItemClass(index)} w-max transition-transform ease-out-quint duration-1000`}>
 					{item}

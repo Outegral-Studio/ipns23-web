@@ -37,11 +37,10 @@ async function fetchArticleList() {
     while(true) {
         try {
             const article = await fetchJSON(counter);
-            const data = JSON.parse(article);
-            const arr = [data.title,
-                         data.subtitle,
-                         data.author,
-                         data.description];
+            const arr = [article.title,
+                         article.subtitle,
+                         article.author,
+                         article.description];
             articles.push(arr);
             counter++;
         } catch(error) {

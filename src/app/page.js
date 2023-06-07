@@ -8,7 +8,6 @@ import Game from "./components/brown/game";
 export default function Homepage() {
     return (
         <>
-            
             <div className="grid relative overflow-hidden">
                 <header className="banner flex relative h-screen h-[100svh] overflow-hidden">
                     <div className="grid absolute right-1/8 max-w-min h-fit place-items-end gap-y-[10em] p-6
@@ -34,7 +33,7 @@ export default function Homepage() {
                         </div>
                         <span className="absolute max-w-fit text-[3em] font-bold tracking-widest
                                         place-self-center bottom-1/4
-                                        md:place-self-start md:relative">
+                                        lg:place-self-start lg:relative">
                             <i>IPNS 23rd</i>
                         </span>
                     </div>
@@ -47,44 +46,13 @@ export default function Homepage() {
                     <article>
                         <Chat />
                         <Expertise />
-                        {/* <BrownGame /> */}
+                        <BrownGame />
                     </article>
                 </main>
             </div>
         </>
 	);
 }
-
-
-
-// function Slash({ articleRef }) {
-//     const articleSecPos = useElementPos(articleRef);
-//     console.log(headingPos);
-//     let x =0, y = 0, r = 0;
-//     if(headingPos[1] <= 1000) {
-//         x = headingPos[0] - 20;
-//         y = headingPos[1];
-//         r = -20;
-//     }
-//     else if(memorySecPos[1] <= 300) {
-//         x = 70;
-//         y = -10;
-//     }
-//     else if(articleSecPos[1] <= 300) {
-//         x = -60;
-//         y = -60;
-//     }
-//     else if(classmateSecPos[1] <= 300) {
-//         x = 60;
-//         y = 30;
-//     }
-
-//     return (
-//         <motion.div className="absolute top-0 left-0 w-[max(3vw,_3vh)] h-[max(15vw,_15vh)] bg-black"
-//                     style={{transform: `translate(${x}px, ${y}px) rotate(${r}deg)`}}>
-//         </motion.div>
-//     );
-// }
 
 
 
