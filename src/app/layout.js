@@ -3,6 +3,9 @@ import "./globals.scss";
 import Navbar from "./navbar";
 import Footer from "./footer";
 import { Montserrat, Noto_Sans_TC } from "next/font/google";
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
 
 const montserrat = Montserrat({
 	weight: ["300", "400", "500", "700"],
@@ -13,7 +16,7 @@ const montserrat = Montserrat({
 });
 
 const notoSansTC = Noto_Sans_TC({
-	weight: ["400", "500", "700"],
+	weight: ["400", "500", "700", "900"],
 	subsets: ["latin"],
     style: "normal",
 	display: "swap",
@@ -35,7 +38,7 @@ export default function RootLayout({ children }) {
 			<body className={`${montserrat.variable} ${notoSansTC.variable}
                              grid grid-rows-[1fr_auto] md:grid-rows-[auto_1fr_auto] min-h-screen min-h-[100dvh] scroll-smooth
                              text-primary text-sm sm:text-base xl:text-lg bg-primary`}>
-				<Navbar />
+				{/* <Navbar /> */}
                 {children}
                 <Footer />
 			</body>

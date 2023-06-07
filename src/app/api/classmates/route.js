@@ -2,17 +2,11 @@ import path from "path";
 import { promises as fs } from 'fs';
 import { NextResponse } from "next/server";
 
-const basePath = path.join(process.cwd(), "src/app/json/articles/");
+const filePath = path.join(process.cwd(), "src/app/json/classmates/classmates.json");
 
 function formatID(id) {
     return id ? id.toString().padStart(3, "0") : "";
 }
-
-// export function extractID(format) {
-//     // ? Remove "a" and parse as int
-//     const id = format.slice(1);
-//     return parseInt(id, 10);
-// }
 
 export function isValidID(id) {
     if(Number.isInteger(parseInt(id, 10))) {
@@ -22,12 +16,12 @@ export function isValidID(id) {
     return false;
 }
 
-export async function fetchJSON(ID) {
-    const formattedID = formatID(ID);
-    let filename = `a${formattedID}.json`;
-    
-    const data = await fs.readFile(basePath + filename, "utf-8");
-    return JSON.parse(data);
+export async function fetchJSONData(id) {
+    if(!isValidID(id)) {
+        return null;
+    }
+    const data = await fs.readFile(filePath, "utf-8");
+    return JSON.parse(data)[id.toString()];
 }
 
 async function fetchArticleList() {
@@ -36,7 +30,7 @@ async function fetchArticleList() {
     
     while(true) {
         try {
-            const article = await fetchJSON(counter);
+            const article = await fetchJSONData(counter);
             const data = JSON.parse(article);
             const arr = [data.title,
                          data.subtitle,
