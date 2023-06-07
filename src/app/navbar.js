@@ -2,18 +2,23 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useLayoutEffect } from "react";
-import useScrollPos from "./components/useScrollPos";
+import { motion, useScroll, useSpring, useMotionValueEvent } from "framer-motion";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 function useNavbarEffect() {
     const breakpoint = 768;
+    // window.innerWidth >= breakpoint
     const storedExpanded = localStorage.getItem("expanded");
-    const initialExpanded = (storedExpanded !== null ? Boolean(storedExpanded) : window.innerWidth >= breakpoint);
+    const initialExpanded = (storedExpanded !== null ? Boolean(storedExpanded) : false);
     const [expanded, setExpanded] = useState(initialExpanded);
 
     useLayoutEffect(() => {
         const handleResize = () => {
             const state = (window.innerWidth >= breakpoint);
-            setExpanded(window.innerWidth >= breakpoint);
+            if(!state) {
+                setExpanded(state);
+            }
         };
 
         // Run once to determine then add to listener
@@ -35,7 +40,6 @@ function useNavbarEffect() {
 }
 
 export default function Navbar() {
-    const active = (useScrollPos() > 100);
     const {expanded, setExpanded} = useNavbarEffect();
     const links = [
         ["首頁", "/"],
@@ -44,26 +48,34 @@ export default function Navbar() {
         ["照片", "/memories"],
     ];
 
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
+
     const toggleNav = () => {
         setExpanded(!expanded);
     };
 
     return (
         <>
-            <button onClick={toggleNav} aria-controls="primary-navbar" aria-expanded={expanded}
-                    className="fixed top-5 right-5 aspect-square w-6 bg-red-700 z-20
-                               block md:hidden">
-                <span className="sr-only">Menu</span>
-            </button>
+            <motion.div className="fixed w-screen h-5 bg-accent origin-left z-2" style={{ scaleX }} />
+            
             <nav id="primary-navbar" data-visible={expanded}
-                 className={`${active ? "bg-primary shadow-lg" : ""} ${(!expanded) ? "-translate-y-full" : ""}
-                            grid w-screen h-fit text-[0.875em] z-10
-                            fixed md:sticky top-0`}>
-                
-                <ul className="navbar-nav flex flex-wrap gap-x-[4.5em] gap-y-[2.5em]
+            // ${active ? "bg-primary shadow-lg" : ""}
+                 className={`bg-primary shadow-lg
+                            flex w-fit h-fit text-[0.875em] z-10
+                            fixed mt-24`}>
+                <button onClick={toggleNav} aria-controls="primary-navbar" aria-expanded={expanded}
+                        className="md:ml-10 lg:ml-12 xl:ml-20">
+                    <FontAwesomeIcon icon={faBars} />
+                </button>
+                <ul className={`${(!expanded) ? "hidden" : ""}
+                                navbar-nav flex flex-wrap gap-x-[4.5em] gap-y-[2.5em]
                                 flex-col justify-self-center
-                                md:flex-row md:justify-self-start
-                                md:ml-20 lg:ml-32 xl:ml-40"
+                                md:flex-row md:justify-self-start`}
                                 >
                     <NavLinks links={links} />
                 </ul>
