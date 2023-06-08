@@ -89,80 +89,79 @@ class Game extends React.Component {
 			cancelAnimationFrame(this.animationFrameId);
 		}
 
-		this.animationFrameId = requestAnimationFrame(this.animate);
-	}
+          this.animationFrameId = requestAnimationFrame(this.animate);
+      }
 
-	handleResize() {
-		this.resetGame();
-	}
+      handleResize() {
+          this.resetGame();
+      }
+    
+      handleMouseDown() {
+        const canvas = this.canvasRef.current;
+        canvas.addEventListener('mousemove', this.handleMouseMove);
+      }
+    
+      handleMouseUp() {
+        const canvas = this.canvasRef.current;
+        canvas.removeEventListener('mousemove', this.handleMouseMove);
+      }
+    
+      handleMouseMove(e) {
+        const rect = this.canvasRef.current.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+    
+        this.ball.accelerateTowards(x, y);
+      }
+      
+      handleTouchStart = (e) => {
+        e.preventDefault();
+        this.canvasRef.current.addEventListener('touchmove', this.handleTouchMove);
+      }
+      
+      handleTouchEnd = (e) => {
+        e.preventDefault();
+        this.canvasRef.current.removeEventListener('touchmove', this.handleTouchMove);
+      }
+      
+      handleTouchMove = (e) => {
+        e.preventDefault();
+        const rect = this.canvasRef.current.getBoundingClientRect();
+        const x = e.touches[0].clientX - rect.left;
+        const y = e.touches[0].clientY - rect.top;
+      
+        this.ball.accelerateTowards(x, y);
+      }
 
-	handleMouseDown() {
-		const canvas = this.canvasRef.current;
-		canvas.addEventListener("mousemove", this.handleMouseMove);
-	}
+  animate = () => {
+    this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+    this.ball.update();
+    this.ball.draw(this.ctx);
+    this.animationFrameId = requestAnimationFrame(this.animate);
+    this.obstacles.forEach(obstacle => {
+        obstacle.update();
+        obstacle.draw(this.ctx);
+    });
 
-	handleMouseUp() {
-		const canvas = this.canvasRef.current;
-		canvas.removeEventListener("mousemove", this.handleMouseMove);
-	}
 
-	handleMouseMove(e) {
-		const rect = this.canvasRef.current.getBoundingClientRect();
-		const x = e.clientX - rect.left;
-		const y = e.clientY - rect.top;
+    this.ctx.save();
+    this.ctx.textAlign = 'center';
+    this.ctx.textBaseline = 'middle';
+    this.ctx.fillStyle = '#000000';
+    this.ctx.font = "900 45px 'Noto Sans'"; // font-style, font-weight, font-size, and font-family
+    this.ctx.fillText('畢', this.hole.x - 26, this.hole.y);
+    this.ctx.restore();
 
-		this.ball.accelerateTowards(x, y);
-	}
+    this.ctx.save();
+    this.ctx.textAlign = 'center';
+    this.ctx.textBaseline = 'middle';
+    this.ctx.fillStyle = '#000000';
+    this.ctx.font = "900 45px 'Noto Sans'"; // font-style, font-weight, font-size, and font-family
+    this.ctx.fillText('業', this.hole.x + 26, this.hole.y);
+    this.ctx.restore();
 
-	handleTouchStart = (e) => {
-		e.preventDefault();
-		this.canvasRef.current.addEventListener("touchmove", this.handleTouchMove);
-	};
 
-	handleTouchEnd = (e) => {
-		e.preventDefault();
-		this.canvasRef.current.removeEventListener(
-			"touchmove",
-			this.handleTouchMove
-		);
-	};
-
-	handleTouchMove = (e) => {
-		e.preventDefault();
-		const rect = this.canvasRef.current.getBoundingClientRect();
-		const x = e.touches[0].clientX - rect.left;
-		const y = e.touches[0].clientY - rect.top;
-
-		this.ball.accelerateTowards(x, y);
-	};
-
-	animate = () => {
-		this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-		this.ball.update();
-		this.ball.draw(this.ctx);
-		this.animationFrameId = requestAnimationFrame(this.animate);
-		this.obstacles.forEach((obstacle) => {
-			obstacle.update();
-			obstacle.draw(this.ctx);
-		});
-
-		this.ctx.save();
-		this.ctx.textAlign = "center";
-		this.ctx.textBaseline = "middle";
-		this.ctx.fillStyle = "#000000";
-		this.ctx.font = "900 45px 'Noto Sans'"; // font-style, font-weight, font-size, and font-family
-		this.ctx.fillText("畢", this.hole.x - 26, this.hole.y);
-		this.ctx.restore();
-
-		this.ctx.save();
-		this.ctx.textAlign = "center";
-		this.ctx.textBaseline = "middle";
-		this.ctx.fillStyle = "#000000";
-		this.ctx.font = "900 45px 'Noto Sans'"; // font-style, font-weight, font-size, and font-family
-		this.ctx.fillText("業", this.hole.x + 26, this.hole.y);
-		this.ctx.restore();
-
-		// Other code as before
+    // Other code as before
 
 		if (this.ball.y > this.canvasHeight) {
 			cancelAnimationFrame(this.animationFrameId);
@@ -209,9 +208,13 @@ class Game extends React.Component {
 		window.removeEventListener("resize", this.handleResize);
 	}
 
-	render() {
-		return <canvas ref={this.canvasRef} width={500} height={800}></canvas>;
-	}
+  render() {
+    return (
+	  
+      <canvas ref={this.canvasRef} width={500} height={800}></canvas>
+	  
+    );
+  }
 }
 
 export default Game;
