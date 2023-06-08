@@ -6,6 +6,10 @@ import Image from "next/image";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
+const metadata = {
+    title: "同學",
+}
+
 export default function ClassmateList() {
     const imageBasePath = path.join(process.cwd(), "public/img/classmates/");
 	const { data, error } = useSWR("/api/classmates", fetcher);

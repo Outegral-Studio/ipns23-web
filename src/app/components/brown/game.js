@@ -1,6 +1,6 @@
 import React from "react";
-import Ball from "./Ball";
-import Obstacle from "./Obstacle";
+import Ball from "./ball";
+import Obstacle from "./obstacle";
 
 class Game extends React.Component {
 	constructor(props) {
@@ -21,19 +21,19 @@ class Game extends React.Component {
 		this.handleResize();
 		window.addEventListener("resize", this.handleResize);
 
+		this.resetGame();
+	}
+
+	resetGame() {
+		this.canvasWidth = window.innerWidth;
+		this.canvasHeight = window.innerHeight;
+		const canvas = this.canvasRef.current;
 		canvas.addEventListener("touchstart", this.handleTouchStart);
 		canvas.addEventListener("touchend", this.handleTouchEnd);
 		canvas.addEventListener("touchmove", this.handleTouchMove);
 
 		canvas.addEventListener("mousedown", this.handleMouseDown);
 		canvas.addEventListener("mouseup", this.handleMouseUp);
-
-		this.animationFrameId = requestAnimationFrame(this.animate);
-	}
-
-	resetGame() {
-		this.canvasWidth = window.innerWidth;
-		this.canvasHeight = window.innerHeight;
 
 		this.canvasRef.current.width = this.canvasWidth;
 		this.canvasRef.current.height = this.canvasHeight;
@@ -52,28 +52,39 @@ class Game extends React.Component {
 
 		this.obstacles = [
 			new Obstacle(
-				(this.canvasWidth * 3) / 5 - 80,
-				(this.canvasHeight * 6) / 7 / 4,
+				(this.canvasWidth * 5) / 7 - 80,
+				(this.canvasHeight * 6) / 7 / 3.8,
 				200,
-				50,
-				"高估自己"
+				38,
+				"分流去其他系"
 			),
 			new Obstacle(
 				(this.canvasWidth * 2) / 9 - 80,
 				(this.canvasHeight * 6) / 7 / 2,
 				200,
-				50,
-				"放棄夢想"
+				38,
+				"高估自己實力"
 			),
 			new Obstacle(
 				(this.canvasWidth * 3) / 7 - 80,
 				(((this.canvasHeight * 6) / 7) * 3) / 4,
 				200,
-				50,
-				"脊椎側彎"
+				38,
+				"放棄夢想"
 			),
 		];
 
+		if (this.canvasWidth > 1300) {
+			this.obstacles.push(
+				new Obstacle(
+					(this.canvasWidth * 4) / 7 - 80,
+					(((this.canvasHeight * 6) / 7) * 2.1) / 4,
+					200,
+					38,
+					"脊椎側彎"
+				)
+			);
+		}
 		if (this.animationFrameId !== undefined) {
 			cancelAnimationFrame(this.animationFrameId);
 		}
@@ -153,21 +164,33 @@ class Game extends React.Component {
 
 		// Other code as before
 
-		if (this.ball.y > this.hole.y) {
-			alert("沒解出來");
+		if (this.ball.y > this.canvasHeight) {
 			cancelAnimationFrame(this.animationFrameId);
+			const canvas = this.canvasRef.current;
+			canvas.removeEventListener("touchstart", this.handleTouchStart);
+			canvas.removeEventListener("touchend", this.handleTouchEnd);
+			canvas.removeEventListener("touchmove", this.handleTouchMove);
+			alert("沒解出來");
 			return;
 		}
 		if (this.ball.x > this.canvasWidth || this.ball.x < 0) {
-			alert("沒解出來");
 			cancelAnimationFrame(this.animationFrameId);
+			const canvas = this.canvasRef.current;
+			canvas.removeEventListener("touchstart", this.handleTouchStart);
+			canvas.removeEventListener("touchend", this.handleTouchEnd);
+			canvas.removeEventListener("touchmove", this.handleTouchMove);
+			alert("沒解出來");
 			return;
 		}
 
 		this.obstacles.forEach((obstacle) => {
 			if (this.ball.collidesWith(obstacle)) {
-				alert("沒解出來");
 				cancelAnimationFrame(this.animationFrameId);
+				const canvas = this.canvasRef.current;
+				canvas.removeEventListener("touchstart", this.handleTouchStart);
+				canvas.removeEventListener("touchend", this.handleTouchEnd);
+				canvas.removeEventListener("touchmove", this.handleTouchMove);
+				alert("沒解出來");
 				return;
 			}
 		});
@@ -175,8 +198,8 @@ class Game extends React.Component {
 		const dx = this.ball.x - this.hole.x;
 		const dy = this.ball.y - this.hole.y;
 		if (Math.sqrt(dx * dx + dy * dy) < this.ball.radius + this.hole.radius) {
-			alert("順利畢業");
 			cancelAnimationFrame(this.animationFrameId);
+			alert("順利畢業");
 			return;
 		}
 	};
@@ -184,9 +207,6 @@ class Game extends React.Component {
 	componentWillUnmount() {
 		cancelAnimationFrame(this.animationFrameId);
 		window.removeEventListener("resize", this.handleResize);
-		canvas.removeEventListener("touchstart", this.handleTouchStart);
-		canvas.removeEventListener("touchend", this.handleTouchEnd);
-		canvas.removeEventListener("touchmove", this.handleTouchMove);
 	}
 
 	render() {

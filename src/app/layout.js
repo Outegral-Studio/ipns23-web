@@ -1,4 +1,3 @@
-"use client";
 import "./globals.scss";
 import Navbar from "./navbar";
 import Footer from "./footer";
@@ -24,7 +23,10 @@ const notoSansTC = Noto_Sans_TC({
 });
 
 export const metadata = {
-	title: "多原方程式",
+	title: {
+        default: "多原方程式",
+        template: "%s | 多原方程式",
+    },
 	description: "清大原科院學士班 23 屆畢業紀念網站",
 	image: "../../public/img/Banner.jpg",
 };
