@@ -1,18 +1,17 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { uesEffect, useState, useLayoutEffect } from "react";
+import { useEffect, useState, useLayoutEffect } from "react";
 import { motion, useScroll, useSpring, useMotionValueEvent } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 function useNavbarEffect() {
     const breakpoint = 768;
+    const [expanded, setExpanded] = useState(false);
     useEffect(() => {
-        const storedExpanded = localStorage.getItem("expanded");
-    })
-    const initialExpanded = (storedExpanded !== null ? Boolean(storedExpanded) : false);
-    const [expanded, setExpanded] = useState(initialExpanded);
+        setExpanded(localStorage.getItem("expanded"));
+    }, [])
 
     useLayoutEffect(() => {
         const handleResize = () => {
