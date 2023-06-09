@@ -87,6 +87,8 @@ const Game = (props) => {
 			obstacle.draw(ctx.current);
 		});
 
+
+
 		ctx.current.save();
 		ctx.current.textAlign = "center";
 		ctx.current.textBaseline = "middle";
@@ -256,9 +258,7 @@ const Game = (props) => {
 		};
 	}, [
 		gameStarted,
-		startGame,
 		reset,
-		resetGame,
 		animationFrameId,
 	]);
 

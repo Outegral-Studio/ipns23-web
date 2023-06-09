@@ -48,6 +48,8 @@ export default function Homepage() {
                         <Chat />
                         <ExpertiseSec />
                         <BrownGameSec />
+                        <Fission />
+
                     </article>
                 </main>
             </div>
@@ -66,16 +68,17 @@ function Chat() {
 }
 
 function ExpertiseSec() {
-    const menuItems = ['電機', '資工', '物理', '計財', '材料', '化學', '工科', '醫環', '生科', '人社'];
+    const menuItems1 = ['能源', '醫環', '修爆'];
+    const menuItems2 = ['電機', '資工', '物理', '計財', '材料', '化學', '工科', '醫環', '生科', '人社'];
 
     return (
         <section className="flex place-items-center min-h-screen">
             <div className="grid place-items-center gap-5">
                 <div className="flex w-screen place-content-around">
-                    <Menu items={menuItems} />
-                    <Menu items={menuItems} />
+                    <Menu items={menuItems1} />
+                    <Menu items={menuItems2} />
                 </div>
-                <h2 className="text-center">這方程式有 <i>(2N) <span className="align-super text-[0.5em]">21</span></i> 個自由度</h2>
+                <h2 className="text-center">這方程式有 <i>(2N) <span className="align-super text-[0.5em]">20</span></i> 個自由度</h2>
             </div>
         </section>
     );
@@ -89,8 +92,11 @@ function BrownGameSec() {
 
     // Start new game when ref is in view
     useEffect(() => {
-        setStarted(isInView);
-        console.log(isInView);
+        if(isInView){
+            setStarted(isInView);
+            console.log(isInView);
+        }
+
     }, [isInView]);
 
     function handleResetComplete() {
@@ -101,18 +107,41 @@ function BrownGameSec() {
     }
 
     return (
-        <section ref={ref} className="grid place-items-center min-h-screen">
-            <div className="grid">
-                <h2 className="text-center">並且不存在解析解<br />只好蒙地卡羅</h2>
-                <span className="text-center">保護好你的高能粒子<br />不要被鉛板吸收</span>
+        <section className="grid min-h-screen relative">
+            <div className="place-items-center grid justify-items-start-col absolute inset-x-0 top-0 pt-20">
+                <button onClick={() => setReset(true)} className="text-center p-10 z-10">重置遊戲</button>
+                <div className="text-center text-black/50 z-0">
+                    <h2 className="">並且不存在解析解<br />只好蒙地卡羅</h2>
+                    <span className="">保護好你的高能粒子<br />不要被鉛板吸收</span>
+
+                </div>
+                                
             </div>
-            <div>
-                <button onClick={() => setReset(true)}>重置遊戲</button>
+            
+            <div className="z-8 absolute inset-x-0 bottom-0">
                 <BrownGame gameStarted={started}
-                           reset={reset}
-                           afterReset={handleResetComplete}
-                           afterStart={handleStartComplete} />
+                        reset={reset}
+                        afterReset={handleResetComplete}
+                        afterStart={handleStartComplete} />
             </div>
+            <div ref={ref} className="z-6 absolute inset-x-0 bottom-0"></div>
+        </section>
+    );
+}
+
+
+function Fission() {
+    const menuItems1 = ['能源', '醫環', '修爆'];
+    const menuItems2 = ['電機', '資工', '物理', '計財', '材料', '化學', '工科', '醫環', '生科', '人社'];
+
+    return (
+        <section className="min-h-screen relative bg-primary-invert">
+            <div className="flex grid place-items-center gap-5">
+                <div className="flex w-screen place-content-around">
+                </div>
+                
+            </div>
+            <h2 className="absolute bottom-6 left-6 text-white">並且不存在解析解<br />只好蒙地卡羅</h2>
         </section>
     );
 }

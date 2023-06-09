@@ -32,8 +32,8 @@ export default function ClassmatePage({ params }) {
     }
 
 	return (
-		<div className="mx-10 md:mx-16 lg:mx-32 2xl:mx-48
-                        my-20">
+		<div className="mx-10 md:mx-24 lg:mx-60 2xl:mx-48
+                        my-40  pt-8">
 			<header className="grid mb-10">
                 <div className="flex justify-between flex-col-reverse md:flex-row">
                     <div className="grid">
@@ -44,13 +44,16 @@ export default function ClassmatePage({ params }) {
                             <span className="high-school">{data.HighSchool}</span>
                         </div>
                     </div>
-                    <Image
-                        src={data.PhotoURL}
-                        alt={`Photo of ${data.Name}`}
-                        width={300} height={400}
-                        className="object-cover rounded-[3em] aspect-[5/4] lg:aspect-video"
-                        priority
-                    />
+                    <div className="mb-10 md:mb-0 lg:mb-0 2xl:mb-0">
+                        <Image
+                            src={data.PhotoURL}
+                            alt={`Photo of ${data.Name}`}
+                            width={300} height={400}
+                            className="object-cover rounded-[3em] aspect-[5/4] lg:aspect-video"
+                            priority
+                        />
+
+                    </div>
                 </div>
 				<blockquote className="blockquote mt-40">
                     {emoji("💡")}
@@ -59,16 +62,16 @@ export default function ClassmatePage({ params }) {
 			</header>
 			<main>
                 <article>
-                    <section className="grid">
+                    <section className="grid pb-40">
                         <p className="blockquote">
                             {emoji("🙋")}
                             {data.SelfIntro}
                         </p>
-                        <ul className="social-media grid">
+                        <ul className="social-media grid pb-8">
                             {data.SocialMedia.Facebook && (
                                 <li>
                                     <a href={data.SocialMedia.Facebook}>
-                                        <FontAwesomeIcon icon={faFacebook} className="me-1" />
+                                        <FontAwesomeIcon icon={faFacebook} className="me-2" />
                                         {fetchNameOfLink(data.SocialMedia.Facebook)}
                                     </a>
                                 </li>
@@ -106,16 +109,16 @@ export default function ClassmatePage({ params }) {
                             </li>
                             )}
                         </ul>
-                        <span className="blockquote">
+                        <span className="blockquote pb-8">
                             {emoji("⛳")}
                             {data.Clubs}
                         </span>
-                        <span className="blockquote">
+                        <span className="blockquote pb-8">
                             {emoji("❤️")}
                             {data.Hobbies}
                         </span>
                     </section>
-                    {(data.Experience !== "") && (data.Portfolio !== "") && (
+                    {(data.Experience !== "") && (
                         <section>
                             {data.Experience !== "" && (
                                 <p className="blockquote">

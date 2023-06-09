@@ -17,7 +17,7 @@ export default function ClassmateList() {
 
 	return (
 		<div className="mx-20 lg:mx-32 2xl:mx-40
-                        my-20">
+                        my-60">
 			<header className="mb-20">
 				<h1>Classmates</h1>
 			</header>

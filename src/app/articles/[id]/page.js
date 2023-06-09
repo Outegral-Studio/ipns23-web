@@ -11,8 +11,7 @@ export default function ArticlePage({ params }) {
 	if (!data) return <div>Loading...</div>;
 
 	return (
-		<div className="mx-20 lg:mx-32 2xl:mx-40
-                        my-20">
+		<div className="mx-20 lg:mx-32 2xl:mx-40 my-20">
 			<header className="mb-10">
 				<ul className="flex list-none">
 					{Object.values(data.tags).map((tag, index) => (
