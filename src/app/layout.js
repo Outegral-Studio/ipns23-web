@@ -28,7 +28,7 @@ export const metadata = {
         template: "%s | 多原方程式",
     },
 	description: "清大原科院學士班 23 屆畢業紀念網站",
-	image: "https://www.flickr.com/photos/198477524@N07/52957609758/",
+	image: "",
 };
 
 export default function RootLayout({ children }) {
