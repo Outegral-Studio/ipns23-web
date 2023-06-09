@@ -118,8 +118,8 @@ function BrownGameSec() {
                                 
             </div>
             
-            <div className="grid z-8">
-                <div className="h-60 sm:h-0"></div>
+            <div className="grid z-2">
+                <div className="h-60 sm:h-0 z-2"></div>
                 <BrownGame gameStarted={started}
                         reset={reset}
                         afterReset={handleResetComplete}
@@ -145,7 +145,10 @@ function Fission() {
         return (
             <section className="min-h-screen relative bg-primary-invert">
                 <div className="flex h-screen grid place-items-center gap-5 justify-around">
-                    <button onClick={() => setShoot(true)} className="h2 text-white">畢業</button>
+                    <h2>
+                        <button onClick={() => setShoot(true)} className="text-white">畢業</button>
+                    </h2>
+                    
                     <h2 className="text-white">世界</h2>
                 </div>
 
