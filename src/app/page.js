@@ -187,7 +187,7 @@ function Fission() {
             <button onClick={() => setDone(false)} className="text-black">畢業</button>
             <div className="flex h-screen grid place-items-center gap-5 justify-around">
                 <div className="place-items-center grid" >
-                    <h2 className="text-black text-center">將能量<br />輻射全世界</h2>
+                    <h1 className="text-black text-center">將能量<br />輻射全世界</h1>
                     <h2 className="text-accent-color">!!!</h2>
                 </div>
                 
