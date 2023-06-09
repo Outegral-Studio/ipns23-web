@@ -15,7 +15,7 @@ export default function ClassmatePage({ params }) {
 	const { data, error } = useSWR(params.id ? `/api/classmates/${params.id}` : null, fetcher);
 	//Handle different states
 	if (error) return <div>Failed to load or classmate does not exist!</div>;
-	if (!data) return <div>Loading...</div>;
+	if (!data) return <div className="place-self-center min-w-screen min-h-screen">Loading...</div>;
 
     function fetchNameOfLink(link) {
         const symbol = "/";
