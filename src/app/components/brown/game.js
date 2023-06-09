@@ -2,10 +2,12 @@ import { forwardRef, useRef, useState, useEffect, useCallback } from "react";
 import Ball from "./ball";
 import Obstacle from "./obstacle";
 
+
 const Game = (props) => {
 	const [gameStarted, setGameStarted] = useState(props.gameStarted);
 	const [reset, setReset] = useState(false);
     const isGameOver = useRef(false);
+
 	useEffect(() => {
 		setGameStarted(props.gameStarted);
         setReset(props.reset);
