@@ -49,7 +49,7 @@ export default function Homepage() {
                         <ExpertiseSec />
                         <BrownGameSec />
                         <Fission />
-
+                        <Fission />
                     </article>
                 </main>
             </div>
@@ -124,7 +124,7 @@ function BrownGameSec() {
                         afterReset={handleResetComplete}
                         afterStart={handleStartComplete} />
             </div>
-            <div ref={ref} className="z-6 absolute inset-x-0 bottom-0"></div>
+            <div ref={ref} className="z-6 absolute inset-x-0 bottom-40"></div>
         </section>
     );
 }
@@ -133,15 +133,39 @@ function BrownGameSec() {
 function Fission() {
     const menuItems1 = ['能源', '醫環', '修爆'];
     const menuItems2 = ['電機', '資工', '物理', '計財', '材料', '化學', '工科', '醫環', '生科', '人社'];
+    const [Shoot, setShoot] = useState(false);
+    const [Done, setDone] = useState(false);
+    useEffect(() => {
+        setDone(Shoot)
+    }, [Shoot]);
 
-    return (
-        <section className="min-h-screen relative bg-primary-invert">
-            <div className="flex grid place-items-center gap-5">
-                <div className="flex w-screen place-content-around">
+
+    if(!Done){
+        return (
+            <section className="min-h-screen relative bg-primary-invert">
+                <div className="flex h-screen grid place-items-center gap-5 justify-around">
+                    <button onClick={() => setShoot(true)} className="h2 text-white">畢業</button>
+                    <h2 className="text-white">世界</h2>
+                </div>
+
+                <h2 className="absolute bottom-10 left-10 text-white/25">畢業作為起始條件<br />找到各自的出路，然後...</h2>
+            </section>
+        );
+    }
+    else{
+        return (
+        <section className="min-h-screen relative bg-primary">
+            <button onClick={() => setShoot(false)} className="text-black">畢業</button>
+            <div className="flex h-screen grid place-items-center gap-5 justify-around">
+                <div className="place-items-center grid" >
+                    <h2 className="text-black text-center">將能量<br />輻射全世界</h2>
+                    <h2 className="text-accent-color">!!!</h2>
                 </div>
                 
             </div>
-            <h2 className="absolute bottom-6 left-6 text-white">並且不存在解析解<br />只好蒙地卡羅</h2>
+
+            <h2 className="absolute bottom-10 left-10 text-black/25">我們將在不同領域<br />燒壞他們的蓋格計數器</h2>
         </section>
-    );
+        );
+    };
 }
