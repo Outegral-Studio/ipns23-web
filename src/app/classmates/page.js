@@ -6,10 +6,6 @@ import Image from "next/image";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-const metadata = {
-    title: "同學",
-}
-
 export default function ClassmateList() {
     const imageBasePath = path.join(process.cwd(), "public/img/classmates/");
 	const { data, error } = useSWR("/api/classmates", fetcher);
@@ -29,7 +25,7 @@ export default function ClassmateList() {
 				<ul className="grid lg:grid-cols-2 2xl:grid-cols-3 gap-20">
 					{data.map((classmate, index) => (
 						<li key={++index} className="">
-							<Link href={`/articles/${++index}`} className="card">
+							<Link href={`/classmates/${++index}`} className="card">
                                 <Image
                                     src={`${imageBasePath}${index}.webp`}
                                     alt={`Photo of ${classmate[Name]}`}

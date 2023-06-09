@@ -36,16 +36,39 @@ body {
     font-family: "Montserrat", "Noto Sans TC", sans-serif;
 }
 
-$navbar-padding: 1.5rem;
-$navbar-nav-padding: 0.5rem;
-nav {
-    padding: $navbar-padding;
-    transition: background-color 0.15s,
-                box-shadow 0.15s;
-}
+#primary-navbar {
+    $button-size: 3rem;
+    $padding: 0.5rem;
+    $basis: $button-size + 2 * $padding;
+    border-radius: 0 ($basis / 2) ($basis / 2) 0;
+    
 
-.navbar-nav {
-    padding: $navbar-nav-padding;
+    .panel {
+        display: flex;
+        padding: $padding;
+        overflow: hidden;
+        flex-direction: column;
+        flex-basis: $basis;
+        align-items: flex-start;
+        gap: 2.5em;
+        transition: flex-basis 2s ease-in-out;
+
+        &:has([aria-expanded="true"]) {
+            flex-basis: 5000%;
+        }
+
+        button {
+            width: $button-size;
+            aspect-ratio: 1 / 1;
+        }
+    }
+    @media screen and (min-width: 768px) {
+        max-height: $basis;
+        .panel {
+            flex-direction: row;
+            align-items: center;
+        }
+    }
 }
 
 .nav-link {
@@ -69,11 +92,11 @@ nav {
     transition: opacity 0.15s ease-in-out;
 }
 
-// @media screen and (min-width: 768px) {
-//     .banner {
-//         height: calc(100vh - 2 * ($navbar-padding + $navbar-nav-padding) - 0.875em - 10px);
-//     }
-// }
+#main-layout {
+    section {
+        border: 2px #FF0000 solid;
+    }
+}
 
 
 
@@ -190,6 +213,8 @@ span {
 
 
 /* ---------------------------- STYLE ---------------------------- */
+
+
 .card {
     $radius: 3rem;
     $gap: 1.5rem;

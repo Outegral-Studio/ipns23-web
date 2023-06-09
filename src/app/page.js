@@ -1,14 +1,15 @@
 "use client";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+import { useInView } from "framer-motion";
 import bannerImg from "../../public/img/Banner.jpg";
 import Menu from "./components/3DMenu";
-import Game from "./components/brown/game";
+import BrownGame from "./components/brown/game";
 
 export default function Homepage() {
     return (
         <>
-            <div className="grid relative overflow-hidden">
+            <div id="main-layout" className="grid relative overflow-hidden">
                 <header className="banner flex relative h-screen h-[100svh] overflow-hidden">
                     <div className="grid absolute right-1/8 max-w-min h-fit place-items-end gap-y-[10em] p-6
                                     top-24 md:top-1/5 md:self-center">
@@ -45,8 +46,8 @@ export default function Homepage() {
                 <main>
                     <article>
                         <Chat />
-                        <Expertise />
-                        <BrownGame />
+                        <ExpertiseSec />
+                        <BrownGameSec />
                     </article>
                 </main>
             </div>
@@ -64,7 +65,7 @@ function Chat() {
     );
 }
 
-function Expertise() {
+function ExpertiseSec() {
     const menuItems = ['電機', '資工', '物理', '計財', '材料', '化學', '工科', '醫環', '生科', '人社'];
 
     return (
@@ -80,21 +81,37 @@ function Expertise() {
     );
 }
 
-function BrownGame() {
-    const gameRef = useRef();
+function BrownGameSec() {
+    const ref = useRef(null)
+    const isInView = useInView(ref)
+    const [started, setStarted] = useState(false);
+    const [reset, setReset] = useState(false);
 
-    function handleResetClick() {
-        gameRef.current.resetGame();
+    // Start new game when ref is in view
+    useEffect(() => {
+        setStarted(isInView);
+        console.log(isInView);
+    }, [isInView]);
+
+    function handleResetComplete() {
+        setReset(false);
     }
+    function handleStartComplete() {
+        setStarted(false);
+    }
+
     return (
-        <section className="flex place-items-center min-h-screen">
+        <section ref={ref} className="grid place-items-center min-h-screen">
             <div className="grid">
-                <h2>並且不存在解析解<br />只好蒙地卡羅</h2>
-                <span>保護好你的高能粒子<br />不要被鉛板吸收</span>
+                <h2 className="text-center">並且不存在解析解<br />只好蒙地卡羅</h2>
+                <span className="text-center">保護好你的高能粒子<br />不要被鉛板吸收</span>
             </div>
             <div>
-                <button onClick={handleResetClick}>重置遊戲</button>
-                <Game ref={gameRef} />
+                <button onClick={() => setReset(true)}>重置遊戲</button>
+                <BrownGame gameStarted={started}
+                           reset={reset}
+                           afterReset={handleResetComplete}
+                           afterStart={handleStartComplete} />
             </div>
         </section>
     );

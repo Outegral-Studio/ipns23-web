@@ -28,7 +28,7 @@ export const metadata = {
         template: "%s | 多原方程式",
     },
 	description: "清大原科院學士班 23 屆畢業紀念網站",
-	image: "../../public/img/Banner.jpg",
+	image: "https://www.flickr.com/photos/198477524@N07/52957609758/",
 };
 
 export default function RootLayout({ children }) {
@@ -36,6 +36,7 @@ export default function RootLayout({ children }) {
 		<html lang="en">
             <head>
                 <link rel="icon" href="/icon?<generated>" type="image/<generated>" sizes="<generated>" />
+                <link rel="apple-touch-icon" href="/apple-icon?<generated>" type="image/<generated>" sizes="<generated>" />
                 {/* TEMP */}
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
