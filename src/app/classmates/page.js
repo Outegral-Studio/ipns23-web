@@ -3,15 +3,15 @@ import Link from "next/link";
 import useSWR from "swr";
 import path from "path";
 import Image from "next/image";
+import { Load, LoadFailed } from "../components/gadgets"
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function ClassmateList() {
     const imageBasePath = path.join(process.cwd(), "public/img/classmates/");
 	const { data, error } = useSWR("/api/classmates", fetcher);
-	//Handle different states
-	if (error) return <div>Failed to load :(</div>;
-	if (!data) return <div>Loading...</div>;
+	if(error) return <LoadFailed />;
+	if(!data) return <Load />;
 
     const Name = 0, FirstExpertise = 1, SecondExpertise = 2, Quote = 3;
 

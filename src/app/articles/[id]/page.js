@@ -1,18 +1,17 @@
 "use client";
 import useSWR from "swr";
+import { Load, LoadCustom } from "../../components/gadgets"
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function ArticlePage({ params }) {
 	const { data, error } = useSWR(params.id ? `/api/articles/${params.id}` : null, fetcher);
-	//Handle different states
-	if (error) return <div>Failed to load or article does not exist!</div>;
-	if (!data) return <div>Loading...</div>;
+	if(error) return <LoadCustom msg={"Failed to load or article does not exist!"}/>;
+	if(!data) return <Load />;
 
 	return (
-		<div className="mx-20 lg:mx-32 2xl:mx-40
-                        my-20">
+		<div className="mx-20 lg:mx-32 2xl:mx-40 my-20">
 			<header className="mb-10">
 				<ul className="flex list-none">
 					{Object.values(data.tags).map((tag, index) => (

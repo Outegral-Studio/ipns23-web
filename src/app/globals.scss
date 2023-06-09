@@ -149,6 +149,7 @@ p {
 }
 
 span {
+    height: fit-content;
     line-height: 1.2;
     text-align: justify;
 }
@@ -157,9 +158,9 @@ span {
 
 /* ---------------------------- CLASS ---------------------------- */
 .school {
-    $offset: 3ch;
+    $offset: 2.5ch;
     position: relative;
-    transform: translateX(1.5 * $offset);
+    transform: translateX(1.25 * $offset);
 
     &::before {
         content: '';
@@ -193,13 +194,30 @@ span {
 
 .blockquote {
     display: grid;
-    grid-template-columns: 3em 1fr;
+    grid-template-columns: 2em 1fr;
+    align-items: center;
     position: relative;
     border-radius: 0.2em;
 
-    & > :first-child {
+    .bq-icon {
+        display: grid;
+        inset: 0;
+        place-content: center;
+        height: 1.75em;
+        place-self: start;
         background: none;
-        justify-self: center;
+    }
+}
+@media screen and (min-width: 768px) {
+    .blockquote {
+        row-gap: 2rem;
+        grid-auto-flow: column;
+        grid-template-columns: none;
+        grid-template-rows: 2em 1fr;
+        justify-items: center;
+    }
+    .bq-icon {
+        place-self: center !important;
     }
 }
 

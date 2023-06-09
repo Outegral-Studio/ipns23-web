@@ -1,14 +1,14 @@
 "use client";
-import Link from "next/link";
 import useSWR from "swr";
+import Link from "next/link";
+import { Load, LoadFailed } from "../components/gadgets"
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function ArticleList() {
 	const { data, error } = useSWR("/api/articles", fetcher);
-	//Handle different states
-	if (error) return <div>Failed to load :(</div>;
-	if (!data) return <div>Loading...</div>;
+	if(error) return <LoadFailed />;
+	if(!data) return <Load />;
 
     const title = 0, subtitle = 1, author = 2, desc = 3;
 

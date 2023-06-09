@@ -1,24 +1,19 @@
 "use client";
 import useSWR from "swr";
 import Image from "next/image";
-
-const metadata = {
-    title: "Memories",
-}
+import { Load, LoadFailed } from "../components/gadgets"
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function Memories() {
     const { data, error } = useSWR("/api/memories", fetcher);
-	//Handle different states
-	if (error) return <div>Failed to load :(</div>;
-	if (!data) return <div>Loading...</div>;
+	if(error) return <LoadFailed />;
+	if(!data) return <Load />;
 
     const title = 0, PhotoURL = 1;
 
     return (
-        <div className="mx-20 lg:mx-32 2xl:mx-40
-                        my-20">
+        <div className="mx-20 lg:mx-32 2xl:mx-40 my-20">
             <header>
                 <h1>Photos</h1>
             </header>
