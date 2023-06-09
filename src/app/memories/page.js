@@ -13,22 +13,22 @@ export default function Memories() {
     const title = 0, PhotoURL = 1;
 
     return (
-        <div className="max-w-[1200px] w-full">
+        <div className="w-full">
             <header>
                 <h1>Photos</h1>
             </header>
             <main>
-                <div className="grid grid-cols-3">
+                <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3">
                     {data.map((photo, index) => (
-                        <div key={index} className="grid">
+                        <div key={index} className="grid pb-10 px-3">
                             <Image
                                 src={photo[PhotoURL]}
                                 alt={photo[title]}
-                                width={300} height={400}
+                                width={500} height={600}
                                 className="object-cover rounded-[3em] aspect-[5/4] lg:aspect-video"
                                 priority
                             />
-                            <span>{photo[title]}</span>
+                            {/* <span>{photo[title]}</span> */}
                         </div>
                     ))}
                 </div>

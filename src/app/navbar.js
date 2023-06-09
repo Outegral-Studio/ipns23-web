@@ -59,7 +59,7 @@ export default function Navbar() {
         <>
             <motion.div className="fixed w-screen h-3 bg-accent origin-left z-2" style={{ scaleX }} />
             
-            <nav id="primary-navbar" data-visible={expanded}
+            {/* <nav id="primary-navbar" data-visible={expanded}
                  className={`flex fixed flex-col md:flex-row top-24
                              bg-accent shadow-lg text-[0.875em] z-10`}>
                 <div className="panel">
@@ -74,6 +74,22 @@ export default function Navbar() {
                         </ul>
                     </div>
                 </div>
+            </nav> */}
+            <nav id="primary-navbar" data-visible={expanded}
+                 className={`bg-primary shadow-lg rounded-r-[100vw]
+                            flex w-fit h-fit text-[0.875em] z-10
+                            fixed mt-24`}>
+                <button onClick={toggleNav} aria-controls="primary-navbar" aria-expanded={expanded}
+                        className="md:ml-10 lg:ml-12 xl:ml-20">
+                    <FontAwesomeIcon icon={faBars} />
+                </button>
+                <ul className={`${(!expanded) ? "hidden" : ""}
+                                navbar-nav flex flex-wrap gap-x-[4.5em] gap-y-[2.5em]
+                                flex-col justify-self-center
+                                md:flex-row md:justify-self-start`}
+                                >
+                    <NavLinks links={links} />
+                </ul>
             </nav>
         </>
     );
