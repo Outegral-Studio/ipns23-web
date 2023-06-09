@@ -36,13 +36,14 @@ export default function ClassmatePage({ params }) {
             <div className="hidden lg:inline-block fixed top-10 right-6 justify-self-end">
                 <TitleDecoCustom size={1.5} />
             </div>
-            <div className="max-w-[1200px]">
+            <div className="max-w-[1200px] w-full">
                 <header className="grid mb-20">
-                    <div className="flex justify-between flex-col-reverse md:flex-row gap-x-16">
-                        <div className="grid w-full md:w-2fr">
+                    <div className="flex justify-between flex-col-reverse lg:flex-row gap-x-16">
+                        <div className="grid w-full lg:w-2fr">
                             <h1 className="self-center tracking-[0.2em]">{data.Name}</h1>
                             <div className="school grid items-center w-fit self-center
-                                            gap-y-6 md:gap-y-8 mt-4">
+                                            gap-y-6 lg:gap-y-8 mt-4">
+                                {/* // TODO: Fix overflow spans on small screens */}
                                 <span className="grad-school">{data.GradSchool}</span>
                                 <span className="expertise">{data.FirstExpertise} / {data.SecondExpertise}</span>
                                 <span className="high-school">{data.HighSchool}</span>
@@ -53,8 +54,8 @@ export default function ClassmatePage({ params }) {
                             alt={`Photo of ${data.Name}`}
                             width={300} height={400}
                             className="block object-cover rounded-[3em]
-                                    w-full mb-20 aspect-[5/4]
-                                    md:w-1fr md:mb-0
+                                    w-full mb-20 aspect-video
+                                    lg:w-1fr lg:mb-0 lg:aspect-[5/4]
                                     xl:aspect-[4/3]"
                             priority
                         />

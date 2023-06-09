@@ -13,7 +13,7 @@ export default function Memories() {
     const title = 0, PhotoURL = 1;
 
     return (
-        <div className="mx-20 lg:mx-32 2xl:mx-40 my-20">
+        <div className="max-w-[1200px] w-full">
             <header>
                 <h1>Photos</h1>
             </header>

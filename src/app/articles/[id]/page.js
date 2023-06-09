@@ -11,7 +11,7 @@ export default function ArticlePage({ params }) {
 	if(!data) return <Load />;
 
 	return (
-		<div className="mx-20 lg:mx-32 2xl:mx-40 my-20">
+		<div className="max-w-[1200px] w-full">
 			<header className="mb-10">
 				<ul className="flex list-none">
 					{Object.values(data.tags).map((tag, index) => (

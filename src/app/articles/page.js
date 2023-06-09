@@ -13,8 +13,7 @@ export default function ArticleList() {
     const title = 0, subtitle = 1, author = 2, desc = 3;
 
 	return (
-		<div className="mx-20 lg:mx-32 2xl:mx-40
-                        my-20">
+		<div className="max-w-[1200px] w-full">
 			<header className="mb-20">
 				<h1>文章列表</h1>
 			</header>

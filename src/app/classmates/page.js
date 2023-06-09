@@ -13,11 +13,10 @@ export default function ClassmateList() {
 	if(error) return <LoadFailed />;
 	if(!data) return <Load />;
 
-    const Name = 0, FirstExpertise = 1, SecondExpertise = 2, Quote = 3;
+    const Name = 0, FirstExpertise = 1, SecondExpertise = 2, Quote = 3, PhotoURL = 4;
 
 	return (
-		<div className="mx-20 lg:mx-32 2xl:mx-40
-                        my-20">
+		<div className="max-w-[1200px] w-full">
 			<header className="mb-20">
 				<h1>Classmates</h1>
 			</header>
@@ -26,13 +25,15 @@ export default function ClassmateList() {
 					{data.map((classmate, index) => (
 						<li key={++index} className="">
 							<Link href={`/classmates/${++index}`} className="card">
-                                <Image
-                                    src={`${imageBasePath}${index}.webp`}
-                                    alt={`Photo of ${classmate[Name]}`}
-                                    width={300} height={400}
-                                    className="object-cover rounded-[3em] aspect-[5/4] lg:aspect-video"
-                                    priority
-                                />
+                                {classmate[PhotoURL] !== null && (
+                                    <Image
+                                        src={classmate[PhotoURL]}
+                                        alt={`Photo of ${classmate[Name]}`}
+                                        width={300} height={400}
+                                        className="object-cover rounded-[3em] aspect-[5/4] lg:aspect-video"
+                                        priority
+                                    />
+                                )}
                                 <div>
                                     <h2>{classmate[Name]}</h2>
                                     <span>{classmate[FirstExpertise]}</span>

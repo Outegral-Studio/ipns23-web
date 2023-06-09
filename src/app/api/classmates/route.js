@@ -49,7 +49,6 @@ export async function fetchJSONData(id) {
 
     const data = await fs.readFile(filePath, "utf-8");
     const url = await fetchPhotoURL(id);
-    console.log(url);
     const matchingData = JSON.parse(data)[id.toString()];
     matchingData.PhotoURL = url;
     return matchingData;
@@ -65,7 +64,8 @@ async function fetchClassmateList() {
             const arr = [classmate.Name,
                          classmate.FirstExpertise,
                          classmate.SecondExpertise,
-                         classmate.Quote];
+                         classmate.Quote,
+                         classmate.PhotoURL];
             classmates.push(arr);
             counter++;
         } catch(error) {
