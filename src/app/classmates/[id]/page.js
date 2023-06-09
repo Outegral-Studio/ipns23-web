@@ -49,7 +49,7 @@ export default function ClassmatePage({ params }) {
                             src={data.PhotoURL}
                             alt={`Photo of ${data.Name}`}
                             width={300} height={400}
-                            className="object-cover rounded-[3em] aspect-[5/4] lg:aspect-video"
+                            className="object-cover rounded-[3em] aspect-[5/4]"
                             priority
                         />
 

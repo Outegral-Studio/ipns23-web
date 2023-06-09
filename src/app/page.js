@@ -120,10 +120,14 @@ function BrownGameSec() {
             
             <div className="grid z-2">
                 <div className="h-60 sm:h-0 z-2"></div>
-                <BrownGame gameStarted={started}
+
+                <div className="min-h-screen min-w-screen z-2">
+                    <BrownGame gameStarted={started}
                         reset={reset}
                         afterReset={handleResetComplete}
                         afterStart={handleStartComplete} />
+                </div>
+
             </div>
             <div ref={ref} className="z-6 absolute inset-x-0 bottom-20"></div>
         </section>
