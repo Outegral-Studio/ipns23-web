@@ -49,7 +49,7 @@ export default function Homepage() {
                         <ExpertiseSec />
                         <BrownGameSec />
                         <Fission />
-                        <Fission />
+                        <END />
                     </article>
                 </main>
             </div>
@@ -168,4 +168,30 @@ function Fission() {
         </section>
         );
     };
+}
+
+
+function END() {
+    const [Shoot, setShoot] = useState(false);
+    const [Done, setDone] = useState(false);
+    useEffect(() => {
+        setDone(Shoot)
+    }, [Shoot]);
+
+    return(
+        <header className="banner flex relative h-screen h-[100svh] overflow-hidden">
+                    <div className="grid absolute right-1/8 max-w-min h-fit place-items-end gap-y-[10em] p-6
+                                    top-24 md:top-1/5 md:self-center">
+                        <h1 className="w-max xl:text-[6em] tracking-[0.4em]" style={{ writingMode: "vertical-rl" }}>
+                            多原<br />方程式
+                        </h1>
+                    </div>
+                    <div className="grid flex h-screen place-items-center">
+                        <span className="text-[3em] font-bold ">
+                            <i>IPNS 23rd</i>
+                        </span>
+                    </div>
+                </header>
+    );
+
 }
