@@ -42,7 +42,7 @@ export default function Homepage() {
                             <i>IPNS 23rd</i>
                         </span>
                     </div>
-                    <div className="grid absolute w-fit bottom-16 left-0 right-0 place-items-center mx-auto">
+                    <div className="grid absolute w-fit bottom-20 left-0 right-0 place-items-center mx-auto gap-4 text-secondary">
                         <FontAwesomeIcon icon={faChevronDown} />
                         <span className="font-light">往下滑動開始你的證明</span>
                     </div>
@@ -66,8 +66,18 @@ export default function Homepage() {
 
 function Chat() {
     return (
-        <section className="flex place-items-center min-h-screen">
-            CHAT
+        <section className="grid min-h-screen items-center
+                            px-6 sm:px-10 md:px-16 lg:px-32 2xl:px-48
+                            py-20 md:py-28 font-bold">
+            <div className="grid h-fit">
+                <span className="bubble bubble-right">什麼是「多原方程式」?</span>
+                <i><span className="text-[1.2em]">IPNS 23rd</span></i>
+                <span className="bubble bubble-left">這是個清大原科院學士班的必修方程式 !</span>
+                <span className="bubble bubble-left mt-2">它跨領域又非線性所以非常不好解</span>
+                <span className="bubble bubble-right mt-2">那你們有解出來嗎 ?</span>
+                <i><span className="mt-2 text-[1.2em]">IPNS 23rd</span></i>
+                <span className="bubble bubble-left">我們 21 個人解出了 21 個線性獨立的特解 ...</span>
+            </div>
         </section>
     );
 }
@@ -201,9 +211,8 @@ function Ending() {
 
 	return (
 		<header className="banner flex relative h-screen h-[100svh]  place-items-center">
-			<div
-				className="grid absolute right-1/8 max-w-min h-fit place-items-end gap-y-[10em] p-6
-                                    top-24 md:top-1/5 md:self-center">
+			<div className="grid absolute right-1/8 max-w-min h-fit place-items-end gap-y-[10em] p-6
+                            top-24 md:top-1/5 md:self-center">
 				<h1 className="w-max xl:text-[6em] tracking-[0.4em]"
 					style={{ writingMode: "vertical-rl" }}>
 					多原<br />方程式
@@ -215,16 +224,13 @@ function Ending() {
 						<i>IPNS 23rd</i>
 					</span>
 					<h3 className="text-center pt-10">立即查看更多</h3>
-					<nav
-						className={`flex flex-row justify-around shadow-lg text-[0.875em] z-10 place-items-center`}
-					>
+					<nav className={`flex flex-row justify-around shadow-lg text-[0.875em] z-10 place-items-center`}>
 						<div className="panel p-8">
 							<div
 								id="primary-navbar-nav"
 								aria-labelledby="navbar-control"
 								role="region"
-								className="place-items-center"
-							>
+								className="place-items-center">
 								<ul className="grid gap-x-[4.5em] gap-y-[2.5em] place-items-center">
 									<NavLinks links={links} />
 								</ul>
