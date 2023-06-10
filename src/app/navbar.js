@@ -80,7 +80,7 @@ export default function Navbar() {
                             flex w-fit h-fit text-[0.875em] z-10
                             fixed mt-24`}>
                 <button onClick={toggleNav} aria-controls="primary-navbar" aria-expanded={expanded}
-                        className="md:ml-10 lg:ml-12 xl:ml-20">
+                        className="">
                     <FontAwesomeIcon icon={faBars} />
                 </button>
                 <ul className={`${(!expanded) ? "hidden" : ""}
@@ -95,7 +95,7 @@ export default function Navbar() {
     );
 }
 
-function NavLinks({links}) {
+export function NavLinks({links}) {
     return (
         <>
             {links.map((link, index) => (

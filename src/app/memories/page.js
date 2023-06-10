@@ -24,8 +24,8 @@ export default function Memories() {
                             <Image
                                 src={photo[PhotoURL]}
                                 alt={photo[title]}
-                                width={500} height={600}
-                                className="object-cover rounded-[3em] aspect-[5/4] lg:aspect-video"
+                                width={700} height={600}
+                                className="object-cover rounded-[3em] aspect-[5/4]"
                                 priority
                             />
                             {/* <span>{photo[title]}</span> */}

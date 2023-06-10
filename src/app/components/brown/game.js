@@ -263,7 +263,7 @@ const Game = (props) => {
 	]);
 
 	return (
-		<canvas ref={canvasRef} width={500} height={800}></canvas>
+		<canvas ref={canvasRef}></canvas>
 	);
 };
 
