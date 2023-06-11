@@ -76,7 +76,7 @@ function Chat() {
                 <span className="bubble bubble-left mt-2">它跨領域又非線性所以非常不好解</span>
                 <span className="bubble bubble-right mt-2">那你們有解出來嗎 ?</span>
                 <i><span className="mt-2 text-[1.2em]">IPNS 23rd</span></i>
-                <span className="bubble bubble-left">我們 21 個人解出了 21 個線性獨立的特解 ...</span>
+                <span className="bubble bubble-left">我們 <i>21</i> 個人解出了 <i>21</i> 個線性獨立的特解 ...</span>
             </div>
         </section>
     );
@@ -89,6 +89,7 @@ function ExpertiseSec() {
     return (
         <section className="flex place-items-center min-h-screen">
             <div className="grid place-items-center gap-5">
+                <span className="tet-secondary">用滾輪選擇你的一二專長</span>
                 <div className="flex w-screen place-content-around">
                     <Menu items={menuItemsFirst} />
                     <Menu items={menuItemsSecond} />

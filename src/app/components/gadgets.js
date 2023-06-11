@@ -1,7 +1,7 @@
 export function Load() {
     return (
         <div className="grid inset-0 place-content-center">
-            Loading...
+            <span>Loading...</span>
         </div>
     );
 }
@@ -9,7 +9,7 @@ export function Load() {
 export function LoadFailed() {
     return (
         <div className="grid inset-0 place-content-center">
-            Failed to load :(
+            <span>Failed to load :(</span>
         </div>
     );
 }
@@ -17,7 +17,7 @@ export function LoadFailed() {
 export function LoadCustom({msg}) {
     return (
         <div className="grid inset-0 place-content-center">
-            {msg}
+            <span>{msg}</span>
         </div>
     );
 }

@@ -29,7 +29,7 @@ export default function ClassmateList() {
                                     <Image
                                         src={classmate[PhotoURL]}
                                         alt={`Photo of ${classmate[Name]}`}
-                                        width={300} height={400}
+                                        width={500} height={400}
                                         className="object-cover rounded-[3em] aspect-[5/4] lg:aspect-video"
                                         priority
                                     />

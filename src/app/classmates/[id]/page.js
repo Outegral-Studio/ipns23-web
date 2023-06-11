@@ -49,16 +49,18 @@ export default function ClassmatePage({ params }) {
                                 <span className="high-school">{data.HighSchool}</span>
                             </div>
                         </div>
-                        <Image
-                            src={data.PhotoURL}
-                            alt={`Photo of ${data.Name}`}
-                            width={300} height={400}
-                            className="block object-cover rounded-[3em]
-                                    w-full mb-20 aspect-video
-                                    lg:w-1fr lg:mb-0 lg:aspect-[5/4]
-                                    xl:aspect-[4/3]"
-                            priority
-                        />
+                        {data.PhotoURL !== null && (
+                            <Image
+                                src={data.PhotoURL}
+                                alt={`Photo of ${data.Name}`}
+                                width={500} height={400}
+                                className="block object-cover rounded-[3em]
+                                        w-full mb-20 aspect-video
+                                        lg:w-1fr lg:mb-0 lg:aspect-[5/4]
+                                        xl:aspect-[4/3]"
+                                priority
+                            />
+                        )}
                     </div>
                     <div className="blockquote mt-32">
                         <div className="bq-icon">{emoji("✉️")}</div>
