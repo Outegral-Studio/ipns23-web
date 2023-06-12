@@ -40,7 +40,7 @@ export default function Memories() {
         }
     }, [selectedImage]);
 
-    const { data, error } = useSWR("/api/memories", fetcher);
+    const { data, error } = useSWR("/api/memories?size=org", fetcher);
 	if(error) return <LoadFailed />;
 	if(!data) return <Load />;
 
@@ -56,22 +56,20 @@ export default function Memories() {
 
     return (
         <div className="w-full">
-            <header>
+            <header className="mb-10">
                 <h1>Photos</h1>
             </header>
             <main>
-                <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3">
+                <div className="columns-1 lg:columns-2 2xl:columns-3 gap-2">
                     {data.map((photo, index) => (
-                        <div key={index} className="grid pb-10 px-3">
-                            <div className="cursor-pointer" onClick={() => openImage(photo)}>
-                                <Image
-                                    src={photo[PhotoURL]}
-                                    alt={photo[title]}
-                                    width={500} height={400}
-                                    className="object-cover rounded-[3em] aspect-[5/4]"
-                                    priority
-                                />
-                            </div>
+                        <div key={index} className="mb-2 cursor-pointer" onClick={() => openImage(photo)}>
+                            <Image
+                                src={photo[PhotoURL]}
+                                alt={photo[title]}
+                                width={500} height={400}
+                                className="w-full object-cover rounded-[1em]"
+                                // ! "priority" removed to allow lazy loading
+                            />
                         </div>
                     ))}
                 </div>
@@ -85,6 +83,7 @@ export default function Memories() {
                             id="full-image"
                             src={selectedImage[PhotoURL]}
                             alt={selectedImage[title]}
+                            quality={100}
                             className="object-contain"
                             fill
                             priority

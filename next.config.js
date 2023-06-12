@@ -7,6 +7,12 @@ const nextConfig = {
                 hostname: "farm66.staticflickr.com",
                 port: "",
                 pathname: "/65535/**"
+            },
+            {
+                protocol: "https",
+                hostname: "live.staticflickr.com",
+                port: "",
+                pathname: "/65535/**"
             }
         ]
     },
