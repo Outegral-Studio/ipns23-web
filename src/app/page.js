@@ -42,7 +42,7 @@ export default function Homepage() {
                             <i>IPNS 23rd</i>
                         </span>
                     </div>
-                    <div className="grid absolute w-fit bottom-20 left-0 right-0 place-items-center mx-auto gap-4 text-secondary">
+                    <div className="grid absolute w-fit bottom-20 left-0 right-0 place-items-center mx-auto gap-4 text-secondary"   >
                         <FontAwesomeIcon icon={faChevronDown} />
                         <span className="font-light">往下滑動開始你的證明</span>
                     </div>

@@ -60,7 +60,7 @@ export default function Memories() {
                 <h1>Photos</h1>
             </header>
             <main>
-                <div className="columns-1 lg:columns-2 2xl:columns-3 gap-2">
+                <div className="columns-1 sm:columns-2 lg:columns-3 gap-2">
                     {data.map((photo, index) => (
                         <div key={index} className="mb-2 cursor-pointer" onClick={() => openImage(photo)}>
                             <Image

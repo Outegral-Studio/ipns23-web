@@ -5,6 +5,7 @@ import { useState, useEffect, useLayoutEffect } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
 function useNavbarEffect() {
     const breakpoint = 768;
@@ -76,15 +77,15 @@ export default function Navbar() {
                 </div>
             </nav> */}
             <nav id="primary-navbar" data-visible={expanded}
-                 className={`bg-primary shadow-lg rounded-r-[100vw]
-                            flex w-fit h-fit text-[0.875em] z-10
-                            fixed mt-24`}>
-                <button onClick={toggleNav} aria-controls="primary-navbar" aria-expanded={expanded}
-                        className="">
+                 className={`flex fixed p-4 text-[0.875em] mt-6 lg:mt-12 bg-primary shadow-lg z-10 transition-all
+                            place-items-start rounded-r-[2.5em]
+                            md:place-items-center md:rounded-r-[100vw]`}>
+                <button onClick={toggleNav} title="Navbar toggler" aria-controls="primary-navbar" aria-expanded={expanded}
+                        className="w-6 aspect-square">
                     <FontAwesomeIcon icon={faBars} />
                 </button>
                 <ul className={`${(!expanded) ? "hidden" : ""}
-                                navbar-nav flex flex-wrap gap-x-[4.5em] gap-y-[2.5em]
+                                navbar-nav flex flex-wrap mx-4 gap-x-[4em] gap-y-[2.5em]
                                 flex-col justify-self-center
                                 md:flex-row md:justify-self-start`}
                                 >

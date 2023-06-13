@@ -37,53 +37,6 @@ body {
     font-family: "Montserrat", "Noto Sans TC", sans-serif;
 }
 
-// #primary-navbar {
-//     $button-size: 3rem;
-//     $padding: 0.5rem;
-//     $basis: $button-size + 2 * $padding;
-//     border-radius: 0 ($basis / 2) ($basis / 2) 0;
-    
-
-//     .panel {
-//         display: flex;
-//         padding: $padding;
-//         overflow: hidden;
-//         flex-direction: column;
-//         flex-basis: $basis;
-//         align-items: flex-start;
-//         gap: 2.5em;
-//         transition: flex-basis 0.5s ease-in-out;
-
-//         &:has([aria-expanded="true"]) {
-//             flex-basis: 100%;
-//         }
-
-//         button {
-//             width: $button-size;
-//             aspect-ratio: 1 / 1;
-//         }
-//     }
-//     @media screen and (min-width: 768px) {
-//         max-height: $basis;
-//         .panel {
-//             flex-direction: row;
-//             align-items: center;
-//         }
-//     }
-// }
-
-$navbar-padding: 1.5rem;
-$navbar-nav-padding: 0.5rem;
-#primary-navbar {
-    padding: $navbar-padding;
-    transition: background-color 0.15s,
-                box-shadow 0.15s;
-    
-    .navbar-nav {
-        padding: $navbar-nav-padding;
-    }
-}
-
 .nav-link {
     --spacing: 0.2em;
     position: relative;
