@@ -88,7 +88,7 @@ export default function ClassmatePage({ params }) {
                                     <li>
                                         <a href={data.socialMedia.instagram}>
                                             <FontAwesomeIcon icon={faInstagram} className="me-4" />
-                                            {fetchNameOfLink(data.docialMedia.instagram)}
+                                            {fetchNameOfLink(data.socialMedia.instagram)}
                                         </a>
                                     </li>
                                 )}
