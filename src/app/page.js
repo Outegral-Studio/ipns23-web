@@ -2,13 +2,13 @@
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 import { useInView } from "framer-motion";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import bannerImg from "../../public/img/Banner.jpg";
 import Menu from "./components/3DMenu";
 import BrownGame from "./components/brown/game";
 import FissionGame from "./components/fission/game"
 import { NavLinks } from "./navbar";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 export default function Homepage() {
     return (
@@ -33,6 +33,7 @@ export default function Homepage() {
                                 alt="Photo of IPNS 23rd members"
                                 className="relative h-screen object-cover aspect-[5/4]
                                         lg:h-fit lg:rounded-[3em] lg:aspect-video"
+                                quality={100}
                                 priority
                             />
                         </div>
@@ -256,6 +257,7 @@ function Ending() {
 					alt="Photo of IPNS 23rd members"
 					className="relative h-screen object-cover aspect-[5/4]
                                         lg:h-fit lg:rounded-[3em] lg:aspect-video"
+                    quality={100}
 					priority
 				/>
 			</div>

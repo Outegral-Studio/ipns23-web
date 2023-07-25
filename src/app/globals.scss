@@ -4,8 +4,8 @@
 
 
 
-/* --------------------------- BREAKOPINTS ---------------------------
- *  sm     md     lg     xl     xxl
+/* --------------------------- BREAKPOINTS ---------------------------
+ *  sm     md     lg     xl     2xl
  * 576px  768px  992px  1200px 1400px
  */
 
@@ -15,26 +15,24 @@
 $font-montserrat: var(--font-montserrat);
 $font-noto-sans-tc: var(--font-noto-sans-tc);
 
-$text-primary: #222222;
-$text-secondary: #B0B1B5;
-$bg-primary: #EBECF2;
-$bg-secondary: #D9D9D9;
-$accent-color: #FFA741;
-$link-color: #196895;
-
-$neu-fill-c1: #D4D4DA;
-$neu-fill-c2: #FBFDFF;
-$neu-shadow-c1: #FFFFFF;
-$neu-shadow-c2: #BCBDC2;
+$clr-text-primary: #222222;
+$clr-text-secondary: #B0B1B5;
+$clr-bg-primary: #EBECF2;
+$clr-bg-secondary: #D9D9D9;
+$clr-accent: #FFA741;
+$clr-link: #196895;
 
 
 
-/* --------------------------- NAVBAR+BODY --------------------------- */
+/* --------------------------- BODY+NAVBAR --------------------------- */
 body {
     overflow-x: hidden;
-    overflow-y: overlay;
+    overflow-y: overlay !important;
+    scrollbar-gutter: stable both-edges;
 
-    font-family: "Montserrat", "Noto Sans TC", sans-serif;
+    // TODO: Test after pull #51890 merge into stable
+    font-family: $font-montserrat, "Noto Sans TC", sans-serif;
+    // font-family: $font-montserrat, $font-noto-sans-tc;
 }
 
 .nav-link {
@@ -43,43 +41,50 @@ body {
     
     letter-spacing: var(--spacing);
     text-transform: uppercase;
-}
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: calc(100% - var(--spacing));
-    height: 0.1rem;
-    left: 0;
-    bottom: -0.15em;
 
-    background: $text-primary;
-    border-radius: 100vw;
-    opacity: 0;
-    transition: opacity 0.15s ease-in-out;
-}
-
-
-
-/* ----------------------------- 3D_MENU ----------------------------- */
-.menu {
-	perspective: 500px;
+    &::after {
+        content: '';
+        position: absolute;
+        width: calc(100% - var(--spacing));
+        height: 0.1rem;
+        left: 0;
+        bottom: -0.15em;
+    
+        background: $clr-text-primary;
+        border-radius: 100vw;
+        opacity: 0;
+        transition: opacity 0.15s ease-in-out;
+    }
 }
 
-.top, .bottom {
-    font-weight: 500;
+
+
+/* ---------------------------- COLORS --------------------------- */
+.bg-primary {
+    background-color: $clr-bg-primary;
+}
+.bg-primary-invert {
+    background-color: $clr-text-primary;
+}
+.bg-secondary {
+    background-color: $clr-bg-secondary;
+}
+.bg-accent {
+    background-color: $clr-accent;
 }
 
-.top {
-	transform: rotateX(45deg) scale(0.9);
-	color: grey;
+.text-primary {
+    color: $clr-text-primary;
+    // fill: $clr-text-primary;
 }
-.active {
-    font-weight: 700;
-	transform: rotateX(0deg) scale(1.1);
+.text-primary-invert {
+    color: $clr-bg-primary;
 }
-.bottom {
-	transform: rotateX(-45deg) scale(0.9);
-	color: grey;
+.text-secondary {
+    color: $clr-text-secondary;
+}
+.text-accent {
+    color: $clr-accent;
 }
 
 
@@ -87,6 +92,7 @@ body {
 /* ---------------------------- TEXTS ---------------------------- */
 h1, h2 {
     max-width: fit-content;
+    text-wrap: balance;
 }
 
 h1 {
@@ -115,49 +121,35 @@ span {
     text-align: justify;
 }
 
-
-
-/* ---------------------------- CLASS ---------------------------- */
-.school {
-    $offset: 2.5ch;
-    position: relative;
-    transform: translateX(1.25 * $offset);
-
-    &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        width: 5px;
-        height: 100%;
-        top: 0;
-        left: - $offset;
-        background-color: $accent-color;
-    }
+.text-info {
+    font-size: 0.875em;
+    font-weight: 300;
+    line-height: 2;
+    text-align: center;
 }
 
-.grad-school {
-    &::after {
-        content: ' (2023 ~)';
-    }
+
+
+/* ----------------------------- 3D_MENU ----------------------------- */
+.menu {
+	perspective: 500px;
 }
 
-.expertise {
-    &::after {
-        content: ' (2019 ~ 2023)';
-    }
+.top, .bottom {
+    font-weight: 500;
 }
 
-.high-school {
-    &::after {
-        content: ' (2016 ~ 2019)';
-    }
+.top {
+	transform: rotateX(45deg) scale(0.9);
+	color: grey;
 }
-
-.social-media {
-    a {
-        color: $link-color;
-        text-decoration: none;
-    }
+.active {
+    font-weight: 700;
+	transform: rotateX(0deg) scale(1.1);
+}
+.bottom {
+	transform: rotateX(-45deg) scale(0.9);
+	color: grey;
 }
 
 
@@ -169,7 +161,7 @@ span {
     display: grid;
     padding: $gap;
     gap: 1rem;
-    border: 2px $text-primary solid;
+    border: 2px $clr-text-primary solid;
     border-radius: $radius;
     
     img {
@@ -201,7 +193,7 @@ span {
         justify-content: flex-start;
         text-align: start;
         border-radius: var(--size) var(--size) var(--size) calc(0.25 * var(--size));
-        background-color: $text-secondary;
+        background-color: $clr-text-secondary;
         transform-origin: bottom left;
     }
   
@@ -212,7 +204,7 @@ span {
         justify-content: flex-end;
         text-align: end;
         border-radius: var(--size) var(--size) calc(0.25 * var(--size)) var(--size);
-        background-color: $accent-color;
+        background-color: $clr-accent;
         transform-origin: bottom right;
     }
   
@@ -254,36 +246,59 @@ span {
     }
 }
 
-.bg-primary {
-    background-color: $bg-primary;
-}
-.bg-primary-invert {
-    background-color: $text-primary;
-}
-.bg-accent {
-    background-color: $accent-color;
+
+
+.school {
+    $offset: 2.5ch;
+    position: relative;
+    transform: translateX(1.25 * $offset);
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 5px;
+        height: 100%;
+        top: 0;
+        left: - $offset;
+        background-color: $clr-accent;
+    }
 }
 
-.text-primary {
-    color: $text-primary;
-}
-.text-primary-invert {
-    color: $bg-primary;
+.grad-school {
+    &::after {
+        content: ' (2023 ~)';
+    }
 }
 
-.text-secondary {
-    color: $text-secondary;
+.expertise {
+    &::after {
+        content: ' (2019 ~ 2023)';
+    }
+}
+
+.high-school {
+    &::after {
+        content: ' (2016 ~ 2019)';
+    }
+}
+
+.social-media {
+    a {
+        color: $clr-link;
+        text-decoration: none;
+    }
 }
 
 
 
 /* -------------------------- SELECTION -------------------------- */
 ::selection, ::-webkit-selection {
-    color: $bg-primary;
-    text-fill-color: $bg-primary;
-    -moz-text-fill-color: $bg-primary;
-    -webkit-text-fill-color: $bg-primary;
-    background: $text-primary;
+    color: $clr-bg-primary;
+    text-fill-color: $clr-bg-primary;
+    -moz-text-fill-color: $clr-bg-primary;
+    -webkit-text-fill-color: $clr-bg-primary;
+    background: $clr-text-primary;
 }
 
 
@@ -297,13 +312,13 @@ $scrollbar-width: 24px;
 }
 ::-webkit-scrollbar-thumb {
     border: calc(0.2 * $scrollbar-width) solid transparent;
-    background: $text-primary;
+    background: $clr-text-primary;
     border-radius: calc(0.6 * $scrollbar-width);
     background-clip: content-box;
 }
 ::-webkit-scrollbar-thumb:hover {
     border: calc(0.2 * $scrollbar-width) solid transparent;
-    background: $accent-color;
+    background: $clr-accent;
     border-radius: calc(0.6 * $scrollbar-width);
     background-clip: content-box;
 }

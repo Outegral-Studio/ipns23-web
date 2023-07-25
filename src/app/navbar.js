@@ -1,20 +1,39 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useLayoutEffect, useSyncExternalStore } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
+// useSyncExternalStore to prevent error during hydration
+function useWindowWidth() {
+    const windowWidth = useSyncExternalStore(onResize, getWindowWidthSnapshot, getServerSnapshot);
+    return {
+        width: windowWidth
+    };
+}
+function onResize(onChange) {
+    window.addEventListener("resize", onChange);
+    return () => window.removeEventListener("resize", onChange);
+}
+function getWindowWidthSnapshot() {
+    return window.innerWidth;
+}
+function getServerSnapshot() {
+    return 0;
+}
+
 function useNavbarEffect() {
     const breakpoint = 768;
     const pathname = usePathname();
+    const { width } = useWindowWidth();
     const [expanded, setExpanded] = useState(false);
 
     useLayoutEffect(() => {
         const handleResize = () => {
-            const state = (window.innerWidth < breakpoint);
+            const state = (width < breakpoint);
             if(state) {
                 setExpanded(!state);
             }
@@ -31,7 +50,7 @@ function useNavbarEffect() {
         return () => {
             window.removeEventListener("resize", handleResize);
         }
-    }, [pathname]);
+    }, [pathname, width]);
 
     return {expanded, setExpanded};
 }
@@ -44,11 +63,6 @@ export default function Navbar() {
         damping: 30,
         restDelta: 0.001
     });
-
-    const toggleNav = () => {
-        setExpanded(!expanded);
-    };
-
     const links = [
         ["首頁", "/"],
         ["同學", "/classmates"],
@@ -56,9 +70,13 @@ export default function Navbar() {
         ["照片", "/memories"],
     ];
 
+    function toggleNav() {
+        setExpanded(!expanded);
+    };
+
     return (
         <>
-            <motion.div className="fixed w-screen h-3 bg-accent origin-left z-2" style={{ scaleX }} />
+            <motion.div className="fixed w-screen h-2 bg-accent origin-left z-2" style={{ scaleX }} />
             
             {/* <nav id="primary-navbar" data-visible={expanded}
                  className={`flex fixed flex-col md:flex-row top-24
@@ -96,7 +114,7 @@ export default function Navbar() {
     );
 }
 
-export function NavLinks({links}) {
+export function NavLinks({ links }) {
     return (
         <>
             {links.map((link, index) => (
@@ -104,10 +122,6 @@ export function NavLinks({links}) {
                     <Link
                         href={link[1]}
                         className="nav-link w-fit hover:after:opacity-100">
-                        {/* onClick={(e) => {
-                            e.preventDefault();
-                            setExpanded(false);
-                        }} */}
                         {link[0]}
                     </Link>
                 </li>

@@ -68,6 +68,7 @@ export default function Memories() {
                                 alt={photo[title]}
                                 width={500} height={400}
                                 className="w-full object-cover rounded-[1em]"
+                                quality={100}
                                 // ! "priority" removed to allow lazy loading
                             />
                         </div>
@@ -83,9 +84,8 @@ export default function Memories() {
                             id="full-image"
                             src={selectedImage[PhotoURL]}
                             alt={selectedImage[title]}
+                            className="object-contain" fill
                             quality={100}
-                            className="object-contain"
-                            fill
                             priority
                         />
                     </div>

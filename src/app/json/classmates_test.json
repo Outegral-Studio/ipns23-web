@@ -1,0 +1,558 @@
+{
+	"classmates": [
+		{
+			"id": 1,
+			"name": "黃煒恆",
+			"hometown": "台中",
+			"quote": "希望大家都能達成自己的理想，不要忘記初衷！",
+			"firstExpertise": "能源環境",
+			"secondExpertise": "電機",
+			"highSchool": "私立僑泰高中 (2016-2019)",
+			"gradSchool": "清華大學 通訊所(實驗室：BIIC)",
+			"selfIntro": ["是個人類。"],
+			"clubs": ["科學服務社"],
+			"experience": [],
+			"hobbies": ["玩音樂、彈吉他"],
+			"portfolio": [],
+			"socialMedia": {
+				"facebook": "",
+				"instagram": "https://instagram.com/huang_900911",
+				"others": []
+			}
+		},
+		{
+			"id": 2,
+			"name": "廖奎鈞",
+			"hometown": "",
+			"quote": "「飲水機其實是出水機，你才是飲水機。」",
+			"firstExpertise": "能源環境",
+			"secondExpertise": "材料",
+			"highSchool": "國立中興高中",
+			"gradSchool": "國立清華大學半導體研究學院",
+			"selfIntro": ["擔任原科系學會會長aka原科里長伯"],
+			"clubs": ["國立清華大學攝影社、原子科學院學士班系學會"],
+			"experience": ["肝膽腸胃科地縛靈"],
+			"hobbies": ["攝影"],
+			"portfolio": [],
+			"socialMedia": {
+				"facebook": "https://www.facebook.com/healy.nthu/",
+				"instagram": "",
+				"others": []
+			}
+		},
+		{
+			"id": 3,
+			"name": "謝育賢",
+			"hometown": "",
+			"quote": "人生就是不斷在尋找目標和達成目標，只是我停在第一個階段有點久…(#藉口)",
+			"firstExpertise": "能源環境",
+			"secondExpertise": "計量財務金融",
+			"highSchool": "台南市瀛海中學",
+			"gradSchool": "",
+			"selfIntro": [
+				"我是原科23級的謝育賢，個性內向、比較不善與人交談。我自認做事還算仔",
+				"細，只要確定好目標就會努力去達成，不過也會過於謹慎固執，有時拘泥在一",
+				"些不重要的細節，導致事倍功半。",
+				"雖然我高中是讀二類組，但一直不是很確定自己的興趣在哪。當時知道自己",
+				"上了原科院學士班，除了第一專長二選一，第二專長可以從任一科系任選時，",
+				"我就有在考慮，是否要考慮選一個和一專性質不同的科系作為二專。在選擇「",
+				"低碳能源」作為一專後，當時我對經濟還蠻有興趣的，所以二專決定選擇「計",
+				"量財務金融」。計財系主要是培養數理、經濟、資訊的分析能力，以成為擁有",
+				"一定的數理基礎和財經理論的財務金融人才。我是看上了除了經濟外還有程式",
+				"語言相關的課程，想要多方嘗試，所以當時選擇的是計財系而不是單純的經濟",
+				"系。",
+				"學士班的雙專長制度固然讓我可以從學業上多方探索，不過過程也不是一路",
+				"順遂。其實在大學期間，我經歷了蠻長一段時間的迷惘期。因為一專、二專的",
+				"性質很不同，加上遲遲無法確定自己想走的領域，導致我不論上一專或二專比",
+				"較進階一點的課，心裡都會有種「我還沒決定好要走哪條路，現在讀這些以後",
+				"會用的到嗎?」的疑問，導致那段時間我的課業成績真的是一團糟。雖然雙專長",
+				"不像雙主修要修更多學分，但想要多方涉獵不同領域的課程，也還是需要花費",
+				"更多心力。我覺得自己當時心理上沒有做好充足的準備，造成面對課業壓力時",
+				"，會對課程內容失去興趣。",
+				"雖然因為自己之前被當了太多科，需要再讀一年，不過經過調適後，我現在",
+				"可以用更積極的態度去面對一專和二專的課業，而且也更確定了自己的興趣更",
+				"偏向金融或是數據分析。希望我能更有自信地面對接下來的難關、找出自己未",
+				"來的道路!"
+			],
+			"clubs": [],
+			"experience": [],
+			"hobbies": [
+				"聽音樂(什麼都聽但沒有特別鑽研，從中文歌、動漫歌、韓劇、遊戲ost都在歌單範圍)"
+			],
+			"portfolio": [],
+			"socialMedia": {
+				"facebook": "https://www.facebook.com/profile.php?id=100007354270110",
+				"instagram": "",
+				"others": []
+			}
+		},
+		{
+			"id": 4,
+			"name": "陳譽",
+			"hometown": "台北",
+			"quote": "很開心在大學四年認識大家，祝福所有原科的同學在未來都能夠順利達成自己的目標、做自己喜歡的事情，大家畢業快樂！",
+			"firstExpertise": "能源環境",
+			"secondExpertise": "電機",
+			"highSchool": "國立師大附中 (2016-2019)",
+			"gradSchool": "清華大學 工程系統科學所(2023-)",
+			"selfIntro": [
+				"我是陳譽，今天就要從原科院學士班畢業了，對於能夠畢業相當興奮，雖然未來還是會繼續待在清大就讀研究所，但想到要離開待了四年的地方還是多少有點感傷，未來如果有機會，希望能夠舉辦個同學會，大家一起吃飯！"
+			],
+			"clubs": ["原科系籃"],
+			"experience": [],
+			"hobbies": ["籃球、嘻哈音樂"],
+			"portfolio": [],
+			"socialMedia": {
+				"facebook": "",
+				"instagram": "",
+				"others": []
+			}
+		},
+		{
+			"id": 5,
+			"name": "劉芷芸",
+			"hometown": "",
+			"quote": "",
+			"firstExpertise": "",
+			"secondExpertise": "",
+			"highSchool": "",
+			"gradSchool": "",
+			"selfIntro": [],
+			"clubs": [],
+			"experience": [],
+			"hobbies": [],
+			"portfolio": [],
+			"socialMedia": {
+				"facebook": "",
+				"instagram": "",
+				"others": []
+			}
+		},
+		{
+			"id": 6,
+			"name": "林思彤",
+			"hometown": "臺北",
+			"quote": "Your imperfection makes you unique",
+			"firstExpertise": "能源環境",
+			"secondExpertise": "材料",
+			"highSchool": "臺北市私立東山高中 (2016-2019)",
+			"gradSchool": "柏克萊加州大學 材料科學與工程碩士 (2023-)",
+			"selfIntro": [
+				"Hi. I am Szu-Tung Lin. I am currently completing my bachelor's degree in Interdisciplinary Program of Nuclear Science at National Tsing Hua University",
+				"Taiwan",
+				"specializing in Energy & Environment and Materials Science & Engineering. After graduating in June 2023",
+				"I will pursue a master's program in Materials Science & Engineering. I am looking forward to taking on new adventures in the future.",
+				""
+			],
+			"clubs": ["清華大學科學服務社、原子科學院學士班系學會"],
+			"experience": [
+				"Activities Officer of Interdisciplinary Program of Nuclear Science Association  (Sep 2021- Jan 2022)•  Successfully organized activities",
+				"including a spring party and a student competition",
+				"Social Media Officer of National Tsing Hua University Science Service Club  (Feb 2020- Jun 2020)• Held science camps for senior high school students for winter and summer vacations• Operated a fan page to promote activities",
+				"the Fung Excellence Award and Opportunity Grant (Apr 2023)Independent Study Award of Interdisciplinary Program of Nuclear Science (3rd)  (Sep 2022)The 3rd Innovative Project Award of The College of Nuclear Science (3rd)   (Oct 2021)Outstanding Academic Performance (2021)",
+				"Special experience in College of Nuclear Science:The interdisciplinary program has trained us to propose different opinions and communicate with people having diverse specialties. We can propound problems that society faces and solve them. For instance",
+				"we found that people in Hsinchu ignore skin protection because they are unaware of the dangers of ultraviolet rays. Therefore",
+				"we told our idea to Professor Tsung-Kuang Yeh and got his support. We designed a set of \"instant detection",
+				"\" \"easy to operate and carry",
+				"\" \" energy saving",
+				"\" and \"Environmentally friendly\" ultraviolet detection devices. Our team members came from different specialties",
+				"and we experienced the stage of the product from scratch",
+				"including designing the circuit",
+				"conducting a market analysis",
+				"and making a video for this product. Finally",
+				"we completed it through trials and revisions and won third place in the 3rd Innovative Project Award of The College of Nuclear Science",
+				"National Tsing Hua University."
+			],
+			"hobbies": ["KPOP (especially BLACKPINK and LE SSERAFIM)", "Travel"],
+			"portfolio": [],
+			"socialMedia": {
+				"facebook": "https://www.facebook.com/szu.tung.lin/",
+				"instagram": "",
+				"others": []
+			}
+		},
+		{
+			"id": 7,
+			"name": "黃衍方",
+			"hometown": "中壢",
+			"quote": "畫虎畫皮難畫骨、知人知面不知心",
+			"firstExpertise": "能源環境",
+			"secondExpertise": "醫環",
+			"highSchool": "中壢高中 (2016-2019)",
+			"gradSchool": "清華大學 生醫所",
+			"selfIntro": ["希望能跟大家都當個好朋友"],
+			"clubs": ["清華大學科學服務社、清華大學原科院學士班系學會場器股"],
+			"experience": [
+				"人民的好班代、好畢代、有幸指導過歐予恩煮咖哩，大學期間在補教方面稍微涉足了約4年"
+			],
+			"hobbies": ["烹飪"],
+			"portfolio": [],
+			"socialMedia": {
+				"facebook": "",
+				"instagram": "",
+				"others": []
+			}
+		},
+		{
+			"id": 8,
+			"name": "歐予恩",
+			"hometown": "新竹",
+			"quote": "拖越久手牌就越差，你在乎就要特別安排",
+			"firstExpertise": "能源環境",
+			"secondExpertise": "物理",
+			"highSchool": "新竹高中 (2016-2019)",
+			"gradSchool": "清華大學物理所",
+			"selfIntro": [
+				"我是專長理論物理、軟體工程，但對教育創作滿有熱情的研究生，立志透過跨領域的實踐，融合科學教育、工程、科技與藝術，創造出具有啟發性的作品，在理工實踐中體現人文關懷。大學在物理系與工程系統科學系的訓練，讓我擁有扎實理論基礎與工程師的思維；實習與工作的經歷讓我有很強的自學能力以及程式語言基礎；個人創作與參與教會志工使我對人事物有獨特的關心。目前在國立清華大學物理所，研究「ＡＩ與ＳＴＥＭ教育的應用」。"
+			],
+			"clubs": ["天文社"],
+			"experience": [],
+			"hobbies": ["物理學"],
+			"portfolio": [],
+			"socialMedia": {
+				"facebook": "https://www.facebook.com/ou.en.5",
+				"instagram": "https://www.instagram.com/oun___/",
+				"others": []
+			}
+		},
+		{
+			"id": 9,
+			"name": "趙亦天",
+			"hometown": "新竹",
+			"quote": "cause there were pages turned with the bridges burned\r\neverything you lose is a step you take\r",
+			"firstExpertise": "能源環境",
+			"secondExpertise": "資工",
+			"highSchool": "新竹女中 (2016-2019)",
+			"gradSchool": "台灣大學 資訊工程所 (2023-)",
+			"selfIntro": [
+				"很不會自我介紹，一直以來只會說喜歡泰勒絲然後就不知道要講什麼，現在發現隨便亂講也可以反正沒人會認真聽！我喜歡的動物是柯基的屁股，希望我以後可以養很多隻可愛的狗狗  ꒰˘̩̩̩⌣˘̩̩̩๑꒱♡"
+			],
+			"clubs": [],
+			"experience": [
+				"能背出所有泰勒絲的歌詞、用芭樂砸壞新買的筆電、期末考前半夜泡咖啡潑到臉上送急診隔天包紗布考三科期末（有一科還考88喔！但也有一科考38）"
+			],
+			"hobbies": ["泰勒絲！第二喜歡的應該是吃東西"],
+			"portfolio": [],
+			"socialMedia": {
+				"facebook": "",
+				"instagram": "niconini_qq",
+				"others": ["niconini_qq"]
+			}
+		},
+		{
+			"id": 10,
+			"name": "尤翊瑄",
+			"hometown": "新竹",
+			"quote": "記得要享受過程，盡情的享受。比想要的東西更珍貴的事物，一定會出現在追求的過程裡。",
+			"firstExpertise": "能源環境",
+			"secondExpertise": "電機",
+			"highSchool": "新竹女中 (2016-2019)",
+			"gradSchool": "",
+			"selfIntro": [
+				"MBTI: INTJ喜歡聽音樂，今年開始聽Paramore，覺得發現了寶藏！"
+			],
+			"clubs": ["韓文社、理財投資研習社"],
+			"experience": [],
+			"hobbies": ["聽音樂"],
+			"portfolio": [],
+			"socialMedia": {
+				"facebook": "",
+				"instagram": "",
+				"others": []
+			}
+		},
+		{
+			"id": 11,
+			"name": "王品丰",
+			"hometown": "台中",
+			"quote": "歡迎大家來瑞典找我鴨，我們可以一起去逛正港ㄟIKEA",
+			"firstExpertise": "能源環境",
+			"secondExpertise": "醫學物理",
+			"highSchool": "明道中學 (2016-2019)",
+			"gradSchool": "瑞典皇家理工學院 (2023-)",
+			"selfIntro": [],
+			"clubs": ["交大火舞社、原科系學會"],
+			"experience": ["差點被抓去成功湖划SUP🥵"],
+			"hobbies": ["蹭飯、吃糖果(*´∀`)~♥"],
+			"portfolio": [],
+			"socialMedia": {
+				"facebook": "",
+				"instagram": "bambi___2000",
+				"others": ["http://linkedin.com/in/pin-feng-wang-976538251"]
+			}
+		},
+		{
+			"id": 12,
+			"name": "吳濰旭",
+			"hometown": "",
+			"quote": "",
+			"firstExpertise": "",
+			"secondExpertise": "",
+			"highSchool": "",
+			"gradSchool": "",
+			"selfIntro": [],
+			"clubs": [],
+			"experience": [],
+			"hobbies": [],
+			"portfolio": [],
+			"socialMedia": {
+				"facebook": "",
+				"instagram": "",
+				"others": []
+			}
+		},
+		{
+			"id": 13,
+			"name": "簡映榕",
+			"hometown": "台中",
+			"quote": "",
+			"firstExpertise": "資工系",
+			"secondExpertise": "",
+			"highSchool": "國立臺中女子高級中學 ",
+			"gradSchool": "",
+			"selfIntro": [
+				"# SKILLS",
+				"",
+				"[ **數據分析** ]",
+				"",
+				"- 參與過實際工作專案",
+				"- 擅長使用 Python 、 SQL 進行數據處理",
+				"- 熟悉 Excel 函式、圖表製作",
+				"",
+				"[ **軟體程式設計** ]",
+				"",
+				"- 熟悉 C / C++ 開發程式",
+				"- 熟悉版本控制工具 Git",
+				"- 擅用 Notion 進行任務管理",
+				"- 具有自行搜索與實作演算法之能力",
+				"",
+				"[ **前後端開發** ]",
+				"",
+				"- 參與過實際工作專案",
+				"- 熟悉 HTML 、 CSS3 、 JavaScript 、 Node.js 、PHP 、 React 、 React Native",
+				"- 使用過 AWS 、 Firebase",
+				"",
+				"**[ Machine Learning ]**",
+				"",
+				"- 使用過 Tensorflow 、 Pytorch 、 Keras",
+				"",
+				"**[ 嵌入式開發 ]**",
+				"",
+				"- FPGA 、 Arduino 、 Raspberry Pi",
+				"",
+				"**[ 遊戲程式設計 ]**",
+				"",
+				"- Unity",
+				"",
+				"**[ Blockchain ]**",
+				"",
+				"- 量化交易",
+				"- 區塊鏈技術及應用",
+				"",
+				"",
+				"",
+				"# INTERESTS",
+				"",
+				"### **調酒**",
+				"",
+				"- 擔任社團社長，具備領導管理、溝通協商、團隊合作之能力",
+				"- 任職學生酒吧調酒師，具緊急應變、時間與任務管理能力",
+				"- 善於設計營運企劃與執行",
+				"",
+				"### **擊劍**",
+				"",
+				"- 代表清華大學參加[2021全國大專校院運動會](https://110niag.ncku.edu.tw/Module/Sigunp/Sta_Unit_Peoples_List.php?SID=S100097&JID=&GID=11404&TName=)，獲一般組女子銳劍第八名",
+				"- 至今維持7年的擊劍活動",
+				"- 培養高度專注力、抗壓能力、策略思考、敏捷反應"
+			],
+			"clubs": ["調酒社社長"],
+			"experience": [
+				"# EXPERIENCE",
+				"",
+				"### 產學合作 - 券商股價預測與分析",
+				"",
+				"Mar 2021 - Aug 2021",
+				"",
+				"- 為券商開發與調整預測合理股價之模型",
+				"- 處理 1.5 億筆股價資料數據庫，撰寫 SQL 執行資料撈取與模型實作",
+				"- 使用 Python 進行需要的數據分析與數據檢定，並繪製圖表",
+				"",
+				"### 線上程式家教",
+				"",
+				"Sep 2021 - Dec 2021",
+				"",
+				"- 與線上家教平台合作，成為講師",
+				"- 主講 python 基礎語法及應用",
+				"- 對象為國小至國中學生",
+				"",
+				"### IoT 公司實習 - 網頁及嵌入式開發",
+				"",
+				"Jan 2022 - June 2022",
+				"",
+				"- 編寫產品上傳資料至 server 的 RESTful API",
+				"- 後端：管理 database",
+				"- 前端：開發客戶端管理及瀏覽產品數據的網頁",
+				"- 嵌入式開發：負責產品部分功能之開發",
+				"",
+				"### 5XRuby 實習 - 網頁開發",
+				"",
+				"Sep 2022 - Now",
+				"",
+				"- 以 Ruby on rails 架構開發",
+				"- 以 Gitlab 做專案管理及團隊協作"
+			],
+			"hobbies": ["擊劍"],
+			"portfolio": [],
+			"socialMedia": {
+				"facebook": "",
+				"instagram": "",
+				"others": [
+					"https://ebony-durian-7d4.notion.site/a0d42d83e0354d8494b5a52a89da51f9"
+				]
+			}
+		},
+		{
+			"id": 14,
+			"name": "宋承融",
+			"hometown": "高雄",
+			"quote": "有貓的日子，才叫生活。Love what U do! \r\n很高興能認識大家，大家畢業快樂！\r",
+			"firstExpertise": "能源環境",
+			"secondExpertise": "電機",
+			"highSchool": "高師大附中 (2016-2019)",
+			"gradSchool": "清華大學 延畢所 (2023-)",
+			"selfIntro": [
+				"在下是微積分三修的宋承融，個性算外向開朗，有點吵，有點龜毛。未來想做的事有點多，賺點錢錢後想開間中途貓咪美式漢堡店，幫可愛小貓咪找到溫暖的家，歡迎大家以後來找貓咪玩！還想開一間二手重機店，可以騎各式各樣的重機，收藏喜歡的重機，大概是醬。"
+			],
+			"clubs": ["科學服務社"],
+			"experience": [],
+			"hobbies": ["研究重機、汽車、教化我家小屁貓"],
+			"portfolio": [],
+			"socialMedia": {
+				"facebook": "宋承融\n",
+				"instagram": "https://instagram.com/curlybrian_0503",
+				"others": []
+			}
+		},
+		{
+			"id": 15,
+			"name": "林昀",
+			"hometown": "",
+			"quote": "",
+			"firstExpertise": "",
+			"secondExpertise": "",
+			"highSchool": "",
+			"gradSchool": "",
+			"selfIntro": [],
+			"clubs": [],
+			"experience": [],
+			"hobbies": [],
+			"portfolio": [],
+			"socialMedia": {
+				"facebook": "",
+				"instagram": "",
+				"others": []
+			}
+		},
+		{
+			"id": 16,
+			"name": "江明婕",
+			"hometown": "高雄",
+			"quote": "親愛的同班同學，畢業快樂！祝福你們未來充滿希望和成功。謝謝你們陪伴我們走過四年的時光，無論將來何處相逢，我們的友誼永不褪色。祝福你們追求夢想，達成目標。前程萬里，再見不再離別！來自chatgpt的祝福",
+			"firstExpertise": "能源環境",
+			"secondExpertise": "電機",
+			"highSchool": "高雄女中 (2016-2019)",
+			"gradSchool": "",
+			"selfIntro": [
+				"雖然個性內向慢熟，但還是很開心能在大學期間認識大家！祝大家鵬程萬里，一帆風順，步步高升，天天黑皮，友情可貴，勿忘我><"
+			],
+			"clubs": ["快樂兒童社、烹飪社"],
+			"experience": [],
+			"hobbies": ["追劇、睡覺、聽音樂"],
+			"portfolio": [],
+			"socialMedia": {
+				"facebook": "",
+				"instagram": "",
+				"others": []
+			}
+		},
+		{
+			"id": 18,
+			"name": "洪城浩",
+			"hometown": "新竹",
+			"quote": "謝謝各位",
+			"firstExpertise": "能源環境",
+			"secondExpertise": "電機",
+			"highSchool": "新竹高中 (2016-2019)",
+			"gradSchool": "",
+			"selfIntro": ["謝謝各位"],
+			"clubs": [],
+			"experience": [],
+			"hobbies": ["打電動"],
+			"portfolio": [],
+			"socialMedia": {
+				"facebook": "",
+				"instagram": "",
+				"others": []
+			}
+		},
+		{
+			"id": 19,
+			"name": "白鈞丞",
+			"hometown": "台中",
+			"quote": "Sacrifice to enjoy Sacrifice! 很開心大學四年遇見原科的大家 後會有期!",
+			"firstExpertise": "能源環境",
+			"secondExpertise": "電機",
+			"highSchool": "台中一中",
+			"gradSchool": "清大電子所",
+			"selfIntro": [
+				"不才目前會朝電機二專領域走，研究領域為運用於AI運算的記憶體內運算",
+				"(SRAM CIM)電路設計，謝謝原科院學士班給我探索第二專長的機會，並且在",
+				"一專與二專找到志同道合的一群夥伴!"
+			],
+			"clubs": ["清華大學科學服務社、原子科學院學士班系學會"],
+			"experience": ["有幸成為歐予恩的同學"],
+			"hobbies": ["羽球 籃球 棒球 聽音樂 唱歌 到處玩 研究SRAM(假的"],
+			"portfolio": [],
+			"socialMedia": {
+				"facebook": "https://www.facebook.com/BaiJyunCheng?mibextid=LQQJ4d",
+				"instagram": "",
+				"others": []
+			}
+		},
+		{
+			"id": 20,
+			"name": "廖煒騰",
+			"hometown": "高雄",
+			"quote": "興趣沒有目的地",
+			"firstExpertise": "能源環境",
+			"secondExpertise": "電機",
+			"highSchool": "高雄市立高雄高級中學",
+			"gradSchool": "岩壁徽章持有者",
+			"selfIntro": [
+				"嗨",
+				"我是廖煒騰",
+				"目前就讀清大原科四年級",
+				"兩個專長是低碳能源和電機工程",
+				"對未來還",
+				"有點迷惘",
+				"但還是會乖乖去讀研究所;以後不一定會想做特定工作",
+				"但希望是能幫助到人",
+				"的那種。有在學一點飲調技術、一點日文",
+				"還想學點音樂製作和韓文",
+				"很高興讓你認識",
+				"我。"
+			],
+			"clubs": ["飲品社咖啡組、飲品社調酒組"],
+			"experience": [
+				"考研沒被成功大學備取，大四暑假沒成功畢業，但有成功暑修到程設。"
+			],
+			"hobbies": ["手沖咖啡、調酒、聽音樂、單口喜劇、電影"],
+			"portfolio": [],
+			"socialMedia": {
+				"facebook": "https://www.facebook.com/weiteng.liao.77/",
+				"instagram": "",
+				"others": []
+			}
+		}
+	]
+}

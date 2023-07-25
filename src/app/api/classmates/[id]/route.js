@@ -1,11 +1,7 @@
 import { NextResponse } from "next/server";
-import { isValidID, fetchJSONData } from "../route";
+import { fetchJSON } from "../route";
 
-export async function GET(request, { params }) {
-    if(!isValidID(params.id)) {
-        return null;
-    }
-    
-    const data = await fetchJSONData(params.id);
+export async function GET(req, { params }) {
+    const data = await fetchJSON(params.id);
     return NextResponse.json(data);
 }
