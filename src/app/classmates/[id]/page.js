@@ -100,19 +100,19 @@ export default function ClassmatePage({ params }) {
                                     </a>
                                 </li>
                                 )}
-                                {data.socialMedia.LinkedIn && (
+                                {data.socialMedia.linkedIn && (
                                     <li>
-                                    <a href={data.socialMedia.LinkedIn}>
+                                    <a href={data.socialMedia.linkedIn}>
                                         <FontAwesomeIcon icon={faLinkedin} className="me-4" />
-                                        {fetchNameOfLink(data.socialMedia.LinkedIn)}
+                                        {fetchNameOfLink(data.socialMedia.linkedIn)}
                                     </a>
                                 </li>
                                 )}
-                                {data.socialMedia.TikTok && (
+                                {data.socialMedia.tikTok && (
                                     <li>
-                                    <a href={data.socialMedia.TikTok}>
+                                    <a href={data.socialMedia.tikTok}>
                                         <FontAwesomeIcon icon={faTiktok} className="me-4" />
-                                        {fetchNameOfLink(data.socialMedia.TikTok)}
+                                        {fetchNameOfLink(data.socialMedia.tikTok)}
                                     </a>
                                 </li>
                                 )}
