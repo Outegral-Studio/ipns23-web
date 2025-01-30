@@ -47,7 +47,7 @@ export default function ClassmatePage({ params }) {
                                 <span className="high-school">{data.highSchool}</span>
                             </div>
                         </div>
-                        {data.photoURL !== null && (
+                        {data.photoURL.length > 1 && (
                             <Image
                                 src={data.photoURL}
                                 alt={`Photo of ${data.name}`}
@@ -71,10 +71,10 @@ export default function ClassmatePage({ params }) {
                 <main>
                     <article className="grid gap-y-40">
                         <section className="grid gap-y-20">
-                            <div className="blockquote">
+                            {data.selfIntro && <div className="blockquote">
                                 <div className="bq-icon">{emoji("🙋")}</div>
                                 <p>{data.selfIntro}</p>
-                            </div>
+                            </div>}
                             <ul className="social-media grid justify-start md:justify-center">
                                 {data.socialMedia.facebook && (
                                     <li>
@@ -117,24 +117,24 @@ export default function ClassmatePage({ params }) {
                                 </li>
                                 )}
                             </ul>
-                            <div className="blockquote">
+                            {data.clubs.length > 1 && <div className="blockquote">
                                 <div className="bq-icon">{emoji("⛳")}</div>
                                 <span>{data.clubs}</span>
-                            </div>
-                            <div className="blockquote">
+                            </div>}
+                            {data.hobbies.length > 1 && <div className="blockquote">
                                 <div className="bq-icon">{emoji("❤️")}</div>
                                 <span>{data.hobbies}</span>
-                            </div>
+                            </div>}
                         </section>
                         {((data.experience !== "") || (data.portfolio !== "")) && (
                             <section className="grid gap-y-20">
-                                {data.experience !== "" && (
+                                {data.experience.length > 1 && (
                                     <div className="blockquote">
                                         <div className="bq-icon">{emoji("💥")}</div>
                                         <p>{data.experience}</p>
                                     </div>
                                 )}
-                                {data.portfolio !== "" && (
+                                {data.portfolio.length > 1 && (
                                     <div className="blockquote">
                                         <div className="bq-icon">{emoji("💡")}</div>
                                         <p>{data.portfolio}</p>

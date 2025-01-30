@@ -19,9 +19,14 @@ async function fetchPhotoURL(id) {
     if (parsedID === false) {
         throw new Error("Invalid ID when trying to fetch photo");
     }
-    
+
     try {
-        const rawData = await fetch(photoUrl);
+        const rawData = await fetch(photoUrl, {
+            headers: {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            }
+        });
+
         if (rawData.ok) {
             const data = await rawData.json();
             const matchingData = data.photoset.photo.find(photo => parseInt(photo.title) === parsedID);
@@ -30,9 +35,9 @@ async function fetchPhotoURL(id) {
             }
 
             const farmID = matchingData.farm,
-                  serverID = matchingData.server,
-                  photoID = matchingData.id,
-                  secret = matchingData.secret;
+                serverID = matchingData.server,
+                photoID = matchingData.id,
+                secret = matchingData.secret;
             const photoURL = `https://farm${farmID}.staticflickr.com/${serverID}/${photoID}_${secret}.jpg`;
             return photoURL;
         }
@@ -71,12 +76,14 @@ export async function fetchJSON(id) {
 
 async function fetchClassmateList() {
     const data = await fetchJSON();
-    const classmates = data.classmates.map(cm => ({id: cm.id,
-                                                   name: cm.name,
-                                                   firstExpertise: cm.firstExpertise,
-                                                   secondExpertise: cm.secondExpertise,
-                                                   quote: cm.quote,
-                                                   photoURL: cm.photoURL}));
+    const classmates = data.classmates.map(cm => ({
+        id: cm.id,
+        name: cm.name,
+        firstExpertise: cm.firstExpertise,
+        secondExpertise: cm.secondExpertise,
+        quote: cm.quote,
+        photoURL: cm.photoURL
+    }));
     const classmateList = classmates.sort((a, b) => a.id - b.id);
     return classmateList;
 }

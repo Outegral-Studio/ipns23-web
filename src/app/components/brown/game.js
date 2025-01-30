@@ -1,4 +1,5 @@
 import { forwardRef, useRef, useState, useEffect, useCallback } from "react";
+import confetti from "canvas-confetti";
 import Ball from "./ball";
 import Obstacle from "./obstacle";
 
@@ -6,6 +7,7 @@ const Game = (props) => {
 	const [gameStarted, setGameStarted] = useState(props.gameStarted);
 	const [reset, setReset] = useState(false);
     const isGameOver = useRef(false);
+
 	useEffect(() => {
 		setGameStarted(props.gameStarted);
         setReset(props.reset);
@@ -21,10 +23,14 @@ const Game = (props) => {
 	const canvasHeight = useRef();
 	const animationFrameId = useRef();
 
-    const gameLostMsg = "沒解出來";
-    const gameWonMsg = "順利畢業";
 
-
+    const handleSuccess = () => {
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+        });
+      };
 
     // Event functions
 	const handleMouseMove = useCallback((e) => {
@@ -110,7 +116,7 @@ const Game = (props) => {
 			canvas.removeEventListener("touchstart", handleTouchStart);
 			canvas.removeEventListener("touchend", handleTouchEnd);
 			canvas.removeEventListener("touchmove", handleTouchMove);
-			alert(gameLostMsg);
+            props.setStatus("fail")
 			return;
 		}
 		if(ball.current.x > canvasWidth.current || ball.current.x < 0) {
@@ -120,7 +126,7 @@ const Game = (props) => {
 			canvas.removeEventListener("touchstart", handleTouchStart);
 			canvas.removeEventListener("touchend", handleTouchEnd);
 			canvas.removeEventListener("touchmove", handleTouchMove);
-			alert(gameLostMsg);
+            props.setStatus("fail")
 			return;
 		}
 
@@ -132,7 +138,7 @@ const Game = (props) => {
 				canvas.removeEventListener("touchstart", handleTouchStart);
 				canvas.removeEventListener("touchend", handleTouchEnd);
 				canvas.removeEventListener("touchmove", handleTouchMove);
-				alert(gameLostMsg);
+                props.setStatus("fail")
 				return;
 			}
 		});
@@ -142,14 +148,15 @@ const Game = (props) => {
 		if(Math.sqrt(dx * dx + dy * dy) < ball.current.radius + hole.current.radius) {
             isGameOver.current = true;
 			cancelAnimationFrame(animationFrameId);
-			alert(gameWonMsg);
+            handleSuccess();
+            props.setStatus("success")
 			return;
 		}
 	}, [handleTouchStart, handleTouchMove, handleTouchEnd]);
 
 	const resetGame = useCallback(() => {
 		canvasWidth.current = window.innerWidth;
-		canvasHeight.current = window.innerHeight;
+		canvasHeight.current = window.innerHeight - 100 ;
 		const canvas = canvasRef.current;
 
 		canvas.addEventListener("touchstart", handleTouchStart);
