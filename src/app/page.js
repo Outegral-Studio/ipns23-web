@@ -16,7 +16,7 @@ export default function Homepage() {
         <>
             <div id="main-layout" className="grid relative overflow-hidden">
                 <header className="banner flex relative h-screen h-[100svh] overflow-hidden">
-                    <div className="grid absolute lg:right-1/8 w-full lg:max-w-min h-fit place-items-center lg:place-items-end gap-y-[10em] p-6 top-1/5 self-center">
+                    <div className="grid absolute lg:right-1/8 w-full lg:max-w-min h-fit place-items-center lg:place-items-end gap-y-[10em] p-6 top-20 lg:top-1/5">
                         <h1 className="w-max xl:text-[6em] tracking-[0.4em]" style={{ writingMode: "vertical-rl" }}>
                             多原<br />方程式
                         </h1>
