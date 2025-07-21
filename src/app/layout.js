@@ -3,7 +3,6 @@ import { getBaseUrl, getFullTitle, generatePreviewMetadata } from "@/lib/utils";
 
 // Styles
 import "@/app/globals.css";
-// import "@/app/globals.scss";
 
 // Components & UI
 import Navbar from "@/components/common/navbar";

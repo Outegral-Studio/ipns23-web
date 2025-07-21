@@ -80,7 +80,7 @@ function H1({
 }: React.ComponentProps<"h1"> & AsChild) {
 	const Comp = asChild ? SlotPrimitive.Slot : "h1";
 
-	return <Comp className={cn("scroll-m-20 text-5xl sm:text-7xl font-bold tracking-tight", className)} {...props} />;
+	return <Comp className={cn("scroll-m-20 text-5xl sm:text-7xl font-bold leading-tight tracking-tight", className)} {...props} />;
 }
 
 function H2({
@@ -90,7 +90,7 @@ function H2({
 }: React.ComponentProps<"h2"> & AsChild) {
 	const Comp = asChild ? SlotPrimitive.Slot : "h2";
 
-	return <Comp className={cn("mt-12 scroll-m-20 text-4xl font-bold tracking-tight first:mt-0 [&+p]:!mt-4", className)} {...props} />;
+	return <Comp className={cn("mt-12 scroll-m-20 text-4xl font-bold leading-tight tracking-tight first:mt-0 [&+p]:!mt-4", className)} {...props} />;
 }
 
 function H3({
@@ -100,7 +100,7 @@ function H3({
 }: React.ComponentProps<"h3"> & AsChild) {
 	const Comp = asChild ? SlotPrimitive.Slot : "h3";
 
-	return <Comp className={cn("mt-8 scroll-m-20 text-xl font-bold tracking-tight first:mt-0 [&+p]:!mt-2", className)} {...props} />;
+	return <Comp className={cn("mt-8 scroll-m-20 text-xl font-bold leading-tight tracking-tight first:mt-0 [&+p]:!mt-2", className)} {...props} />;
 }
 
 function H4({

@@ -1,13 +1,11 @@
 // Components & UI
 import Image from "next/image";
-import { H1 } from "@/components/common/typography";
-import {
-    Chat,
-    ExpertiseSec,
-    BrownGameSec,
-    FissionGameSec,
-    Ending
-} from "@/components/main/sections";
+import { H1, Muted } from "@/components/common/typography";
+import { ChatSection } from "@/components/main/homepage/chat-section";
+import { ExpertiseSection } from "@/components/main/homepage/expertise-section";
+import { BrownGameSection } from "@/components/main/homepage/brown-game-section";
+import { FissionGameSection } from "@/components/main/homepage/fission-game-section";
+import { EndingSection } from "@/components/main/homepage/ending-section";
 
 // Icons & Images
 import { ChevronDown } from "lucide-react";
@@ -47,19 +45,19 @@ export default function Homepage() {
                             <i>IPNS 23rd</i>
                         </span>
                     </div>
-                    <div className="grid absolute w-fit bottom-20 left-0 right-0 place-items-center mx-auto gap-4 text-secondary">
-                        <ChevronDown />
-                        <span className="font-light animate-bounce">往下滑動開始你的證明</span>
-                    </div>
+					<Muted className="absolute inset-x-0 bottom-20 grid justify-items-center gap-4 w-fit mx-auto">
+						<ChevronDown />
+						<span className="animate-bounce">往下滑動開始你的證明</span>
+					</Muted>
                 </header>
 
                 <main>
                     <article>
-                        <Chat />
-                        <ExpertiseSec />
-                        <BrownGameSec />
-                        <FissionGameSec />
-                        <Ending />
+                        <ChatSection />
+                        <ExpertiseSection />
+                        <BrownGameSection />
+                        <FissionGameSection />
+                        <EndingSection />
                     </article>
                 </main>
             </div>

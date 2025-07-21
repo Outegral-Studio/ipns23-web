@@ -25,15 +25,15 @@ export default function Memories() {
 
     useEffect(() => {
         // TODO: Not working
-        function handleOutsideClick(event) {
+        function handleOutsideClick(event: MouseEvent) {
             console.log("Clicked outside:", event.target);
             const image = document.getElementById("full-image");
-            if (image && !image.contains(event.target)) {
+            if (image && !image.contains(event.target as Node)) {
                 closeMemory();
             }
         }
 
-        function handleKeyDown(event) {
+        function handleKeyDown(event: KeyboardEvent) {
             if (event.key === "Escape") {
                 closeMemory();
             }

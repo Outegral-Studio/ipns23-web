@@ -3,6 +3,8 @@ import confetti from "canvas-confetti";
 import Ball from "./ball";
 import Obstacle from "./obstacle";
 
+
+
 const Game = (props) => {
 	const [gameStarted, setGameStarted] = useState(props.gameStarted);
 	const [reset, setReset] = useState(false);
@@ -152,6 +154,7 @@ const Game = (props) => {
             props.setStatus("success")
 			return;
 		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [handleTouchStart, handleTouchMove, handleTouchEnd]);
 
 	const resetGame = useCallback(() => {

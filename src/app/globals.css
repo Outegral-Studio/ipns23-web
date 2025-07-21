@@ -59,7 +59,7 @@
 	--secondary-foreground: oklch(0.985 0 0);
 	--muted: oklch(0.967 0.001 286.375);
 	--muted-foreground: oklch(0.552 0.016 285.938);
-	--accent: oklch(0.967 0.001 286.375);
+	--accent: oklch(0.76 0.01 275.05);
 	--accent-foreground: oklch(0.21 0.006 285.885);
 	--destructive: oklch(0.577 0.245 27.325);
 	--border: oklch(0.92 0.004 286.32);
@@ -87,13 +87,13 @@
 	--card-foreground: oklch(0.985 0 0);
 	--popover: oklch(0.21 0.006 285.885);
 	--popover-foreground: oklch(0.985 0 0);
-	--primary: oklch(0.21 0.006 285.885);
+	--primary: oklch(0.80 0.15 65.84);
 	--primary-foreground: oklch(0.985 0 0);
 	--secondary: oklch(0.68 0.15 237.31);
 	--secondary-foreground: oklch(0.985 0 0);
 	--muted: oklch(0.274 0.006 286.033);
 	--muted-foreground: oklch(0.705 0.015 286.067);
-	--accent: oklch(0.274 0.006 286.033);
+	--accent: oklch(0.76 0.01 275.05);
 	--accent-foreground: oklch(0.985 0 0);
 	--destructive: oklch(0.704 0.191 22.216);
 	--border: oklch(1 0 0 / 10%);
@@ -131,6 +131,7 @@
 @layer base {
 	* {
 		@apply border-border outline-ring/50;
+		@apply selection:bg-primary selection:text-primary-foreground;
 	}
 
 	html {
@@ -143,4 +144,22 @@
         @apply text-base lg:text-lg;
 		scrollbar-gutter: stable both-edges;
 	}
+}
+
+:root {
+	--scrollbar-width: 24px;
+}
+::-webkit-scrollbar {
+	@apply w-[calc(0.6_*_var(--scrollbar-width))] bg-transparent overflow-y-hidden;
+}
+::-webkit-scrollbar-thumb {
+    border: calc(0.2 * var(--scrollbar-width)) solid transparent;
+	@apply bg-foreground rounded-[calc(0.6_*_var(--scrollbar-width))] bg-clip-content;
+}
+::-webkit-scrollbar-thumb:hover {
+    border: calc(0.2 * var(--scrollbar-width)) solid transparent;
+	@apply bg-primary rounded-[calc(0.6_*_var(--scrollbar-width))] bg-clip-content;
+}
+::-webkit-scrollbar-corner {
+	@apply rounded-[calc(0.6_*_var(--scrollbar-width))];
 }

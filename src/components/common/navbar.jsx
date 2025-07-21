@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useLayoutEffect, useSyncExternalStore } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring } from "motion/react";
 
 // Icons & Images
 import { Menu } from "lucide-react";
@@ -78,7 +78,7 @@ export default function Navbar() {
 
     return (
         <>
-            <motion.div className="fixed w-screen h-2 bg-accent origin-left z-2" style={{ scaleX }} />
+            <motion.div className="fixed w-screen h-2 bg-primary origin-left z-10" style={{ scaleX }} />
             <nav id="primary-navbar" data-visible={expanded}
                 className={`flex fixed p-4 text-[0.875em] mt-6 lg:mt-12 bg-primary shadow-lg z-10 transition-all
                             place-items-start rounded-r-[2.5em]
